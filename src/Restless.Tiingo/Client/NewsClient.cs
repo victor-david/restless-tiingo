@@ -11,6 +11,11 @@ namespace Restless.Tiingo.Client
         {
         }
 
+        /// <summary>
+        /// Gets a collection of news items
+        /// </summary>
+        /// <param name="parms">Parms for the operation</param>
+        /// <returns>A <see cref="NewsItemCollection"/></returns>
         public async Task<NewsItemCollection> Get(NewsParameters parms)
         {
             UrlBuilder builder =
