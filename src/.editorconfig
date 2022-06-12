@@ -1,0 +1,22 @@
+﻿[*.cs]
+
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = none
+
+# IDE0063: Use simple 'using' statement
+dotnet_diagnostic.IDE0063.severity = none
+
+# IDE0055: Fix formatting. No. I'll use mine.
+dotnet_diagnostic.IDE0055.severity = none
+
+# IDE0058: Expression value not used.
+dotnet_diagnostic.IDE0058.severity = none
+
+# IDE0010: Populate switch.
+dotnet_diagnostic.IDE0010.severity = none
+
+# IDE0072: Populate switch. More nags we don't need.
+dotnet_diagnostic.IDE0072.severity = none
+
+# IDE0130: Namespace does not match folder structure
+dotnet_diagnostic.IDE0130.severity = none

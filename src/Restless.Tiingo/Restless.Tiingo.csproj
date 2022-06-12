@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <OutputType>Library</OutputType>
+    <PackageId>Restless.Tiingo</PackageId>
+    <AssemblyName>Restless.Tiingo</AssemblyName>
+    <RootNamespace>Restless.Tiingo</RootNamespace>
+    <Description>Provides access to the Tiiango financial api</Description>
+    <PackageProjectUrl>https://github.com/victor-david/restless-tiiango</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/victor-david/restless-tiiango</RepositoryUrl>
+    <Authors>Restless Animal Development</Authors>
+    <Company>Restless Animal Development</Company>
+    <Version>1.0.0</Version>
+    <LangVersion>9.0</LangVersion>
+    <Product>Restless Tiiango Api</Product>
+    <Title>Restless Tiiango Api</Title>
+    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <Copyright>Copyright © 2022</Copyright>
+    <PackageTags>tiiango api</PackageTags>
+    <PackageReleaseNotes></PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+  </ItemGroup>
+
+</Project>
