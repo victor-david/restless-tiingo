@@ -20,7 +20,7 @@ private async void GetInfo()
             StartDate = new DateTime(2020, 5, 15),
         });
 
-        NewsItemCollection news = await client.News.Get(new NewsParameters()
+        NewsItemCollection news = await client.News.GetNewsAsync(new NewsParameters()
         {
             StartDate = new DateTime(2022, 6, 6),
             Tickers = new string[] {"msft","sbux" },
