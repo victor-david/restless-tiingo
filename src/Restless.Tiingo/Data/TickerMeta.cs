@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 namespace Restless.Tiingo.Data
 {
     /// <summary>
-    /// Represents meta dat for a single ticker
+    /// Represents meta data for a single ticker
     /// </summary>
     public class TickerMeta
     {

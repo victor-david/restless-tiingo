@@ -9,6 +9,17 @@ namespace Restless.Tiingo.Core
         private readonly string root;
         private readonly ParmDictionary parms;
 
+        /// <summary>
+        /// Gets the constructed url
+        /// </summary>
+        public string Url => ToString();
+
+        #region Constructors
+        public static UrlBuilder Create(string root)
+        {
+            return new UrlBuilder(root);
+        }
+
         private UrlBuilder(string root)
         {
             if (string.IsNullOrWhiteSpace(root))
@@ -19,15 +30,12 @@ namespace Restless.Tiingo.Core
             this.root = root;
             parms = new ParmDictionary();
         }
+        #endregion
 
-        public static UrlBuilder Create(string root)
-        {
-            return new UrlBuilder(root);
-        }
-
+        #region Public methods
         public UrlBuilder AddFormat(string format)
         {
-            parms.AddIfValid(Values.Format, format);
+            parms.AddIfValid(Values.ResultFormatParm, format);
             return this;
         }
 
@@ -52,11 +60,31 @@ namespace Restless.Tiingo.Core
             return this;
         }
 
+        public UrlBuilder AddValue(string parmName, int value)
+        {
+            parms.AddIfValid(parmName, value.ToString());
+            return this;
+        }
+
+        public UrlBuilder AddValue(string parmName, string value)
+        {
+            parms.AddIfValid(parmName, value);
+            return this;
+        }
+
+        public UrlBuilder AddArray(string parmName, string[] values)
+        {
+            parms.AddIfValid(parmName, StringArrayToParm(values));
+            return this;
+        }
+
         public override string ToString()
         {
             return $"{root}{parms}";
         }
+        #endregion
 
+        #region Private methods
         private string SortOptionToSortParm(SortOption sort)
         {
             return sort switch
@@ -66,5 +94,18 @@ namespace Restless.Tiingo.Core
                 _ => string.Empty
             };
         }
+        private string StringArrayToParm(string[] values)
+        {
+            StringBuilder builder = new();
+            int count = 0;
+            foreach (string value in values ?? new string[] { })
+            {
+                builder.Append(count++ == 0 ? string.Empty : ",");
+                builder.Append(value);
+            }
+
+            return builder.ToString();
+        }
+        #endregion
     }
 }

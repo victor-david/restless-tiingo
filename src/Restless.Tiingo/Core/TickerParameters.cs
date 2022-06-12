@@ -2,18 +2,14 @@
 
 namespace Restless.Tiingo.Core
 {
-    public class OperationOptions
+    public class TickerParameters : ApiParameters
     {
-        public DateTime? StartDate { get; set; }
-        public DateTime? EndDate { get; set; }
         public ResampleFrequency Frequency { get; set; }
         public SortOption Sort { get; set; }
 
-        public OperationOptions()
+        public TickerParameters()
         {
             Frequency = ResampleFrequency.Daily;
-            StartDate = null;
-            EndDate = null;
             Sort = SortOption.None;
         }
     }

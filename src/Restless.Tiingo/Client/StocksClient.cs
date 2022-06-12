@@ -23,9 +23,10 @@ namespace Restless.Tiingo.Client
         public async Task<TickerMeta> GetMetaAsync(string ticker)
         {
             UrlBuilder builder =
-                UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}");
+                UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}")
+                .AddFormat(Values.JsonFormat);
 
-            string json = await GetRawJsonAsync(builder.ToString());
+            string json = await GetRawJsonAsync(builder.Url);
             return JsonSerializer.Deserialize<TickerMeta>(json);
         }
 
@@ -33,21 +34,21 @@ namespace Restless.Tiingo.Client
         /// Gets a collection of stock data points for the specified ticker
         /// </summary>
         /// <param name="ticker">The ticker</param>
-        /// <param name="ops">The operation options</param>
+        /// <param name="parms">The operation options</param>
         /// <returns>A <see cref="StockDataPointCollection"/></returns>
-        public async Task<StockDataPointCollection> GetDataPointsAsync(string ticker, OperationOptions ops)
+        public async Task<StockDataPointCollection> GetDataPointsAsync(string ticker, TickerParameters parms)
         {
-            _ = ops ?? throw new ArgumentNullException(nameof(ops));
+            _ = parms ?? throw new ArgumentNullException(nameof(parms));
 
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}/prices")
                 .AddFormat(Values.JsonFormat)
-                .AddDate(Values.StartDateParm, ops.StartDate)
-                .AddDate(Values.EndDateParm, ops.EndDate)
-                .AddResampleFrequency(ops.Frequency)
-                .AddSort(ops.Sort);
+                .AddDate(Values.StartDateParm, parms.StartDate)
+                .AddDate(Values.EndDateParm, parms.EndDate)
+                .AddResampleFrequency(parms.Frequency)
+                .AddSort(parms.Sort);
 
-            string json = await GetRawJsonAsync(builder.ToString());
+            string json = await GetRawJsonAsync(builder.Url);
             return JsonSerializer.Deserialize<StockDataPointCollection>(json);
         }
     }

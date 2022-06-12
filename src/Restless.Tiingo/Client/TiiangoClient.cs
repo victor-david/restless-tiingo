@@ -37,8 +37,10 @@ namespace Restless.Tiingo.Client
         {
             client = new DefaultHttpClientWrapper(new HttpClient());
             client.SetTimeOut(timeout);
-            Stocks = new StocksClient(client, ValidateApiToken(apiToken));
-            Forex = new ForexClient(client, ValidateApiToken(apiToken));
+            _ = ValidateApiToken(apiToken);
+            Stocks = new StocksClient(client, apiToken);
+            Forex = new ForexClient(client, apiToken);
+            News = new NewsClient(client, apiToken);
         }
         #endregion
 
@@ -52,6 +54,11 @@ namespace Restless.Tiingo.Client
         /// Gets the forex client
         /// </summary>
         public ForexClient Forex { get; }
+
+        /// <summary>
+        /// Gets the news client
+        /// </summary>
+        public NewsClient News { get; }
         #endregion
 
         #region IDisposable
