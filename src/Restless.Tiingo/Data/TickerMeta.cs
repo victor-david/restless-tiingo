@@ -12,7 +12,7 @@ namespace Restless.Tiingo.Data
         public string Description { get; set; }
 
         [JsonPropertyName("endDate")]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         [JsonPropertyName("exchangeCode")]
         public string ExchangeCode { get; set; }
@@ -21,7 +21,7 @@ namespace Restless.Tiingo.Data
         public string Name { get; set; }
 
         [JsonPropertyName("startDate")]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
 
         [JsonPropertyName("ticker")]
         public string Ticker { get; set; }

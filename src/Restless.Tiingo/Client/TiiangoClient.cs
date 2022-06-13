@@ -41,6 +41,7 @@ namespace Restless.Tiingo.Client
             Stocks = new StocksClient(client, apiToken);
             Forex = new ForexClient(client, apiToken);
             News = new NewsClient(client, apiToken);
+            Tickers = new TickersClient(client, apiToken);
         }
         #endregion
 
@@ -59,6 +60,11 @@ namespace Restless.Tiingo.Client
         /// Gets the news client
         /// </summary>
         public NewsClient News { get; }
+
+        /// <summary>
+        /// Gets the tickers client
+        /// </summary>
+        public TickersClient Tickers { get; }
         #endregion
 
         #region IDisposable

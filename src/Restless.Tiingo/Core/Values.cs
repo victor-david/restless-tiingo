@@ -10,6 +10,7 @@
         public const string JsonContent = "application/json";
         public const string JsonFormat = "json";
         public const string LimitParm = "limit";
+        public const string OctetStreamContent = "application/octet-stream";
         public const string ResultFormatParm = "format";
         public const string SortParm = "sort";
         public const string SortByParm = "sortBy";

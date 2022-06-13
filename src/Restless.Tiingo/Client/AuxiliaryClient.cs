@@ -37,11 +37,26 @@ namespace Restless.Tiingo.Client
             using (HttpRequestMessage request = new(HttpMethod.Get, url))
             {
                 AddStandardRequestHeaders(request, Values.JsonContent);
+                AddAuthorizationHeader(request);
 
                 HttpResponseMessage response = await Client.SendAsync(request).ConfigureAwait(false);
+                response.EnsureSuccessStatusCode();
 
                 string json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 return GetErrorResponse(ref json) is ErrorResponse error ? throw new ApiException(error.Message) : json;
+            }
+        }
+
+        protected async Task<byte[]> GetRawByteArrayAsync(string url)
+        {
+            using (HttpRequestMessage request = new(HttpMethod.Get, url))
+            {
+                AddStandardRequestHeaders(request, Values.OctetStreamContent);
+
+                HttpResponseMessage response = await Client.SendAsync(request).ConfigureAwait(false);
+                response.EnsureSuccessStatusCode();
+
+                return await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
             }
         }
         #endregion
@@ -51,13 +66,18 @@ namespace Restless.Tiingo.Client
         {
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(contentType));
             request.Headers.Host = request.RequestUri.Host;
-            request.Headers.Authorization = new AuthenticationHeaderValue("Token", apiToken);
             request.Headers.Add("Connection", "Close");
             //request.Headers.Add("User-Agent", UserAgent);
             request.Headers.Date = new DateTimeOffset(DateTime.Now);
             request.Headers.Add("Accept-Language", "en-us");
             request.Headers.Add("Cache-Control", "no-cache");
         }
+
+        private void AddAuthorizationHeader(HttpRequestMessage request)
+        {
+            request.Headers.Authorization = new AuthenticationHeaderValue("Token", apiToken);
+        }
+
 
         private ErrorResponse GetErrorResponse(ref string json)
         {
