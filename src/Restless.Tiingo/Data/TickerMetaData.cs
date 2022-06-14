@@ -6,7 +6,7 @@ namespace Restless.Tiingo.Data
     /// <summary>
     /// Represents meta data for a single ticker
     /// </summary>
-    public class TickerMeta
+    public class TickerMetaData
     {
         [JsonPropertyName("description")]
         public string Description { get; set; }

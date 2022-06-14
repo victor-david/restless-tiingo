@@ -20,14 +20,14 @@ namespace Restless.Tiingo.Client
         /// </summary>
         /// <param name="ticker">The ticker</param>
         /// <returns></returns>
-        public async Task<TickerMeta> GetMetaAsync(string ticker)
+        public async Task<TickerMetaData> GetMetaAsync(string ticker)
         {
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}")
                 .AddFormat(Values.JsonFormat);
 
             string json = await GetRawJsonAsync(builder.Url);
-            return JsonSerializer.Deserialize<TickerMeta>(json);
+            return JsonSerializer.Deserialize<TickerMetaData>(json);
         }
 
         /// <summary>
