@@ -27,6 +27,11 @@ private async void GetInfo()
             Sources = new string[] { "bloomberg.com" },
             Limit = 10
         });
+        
+        SearchResultCollection results = await client.Search.GetSearchResults("dow jones", new SearchParameters()
+        {
+            Limit = 50
+        });        
     }
 }
 ~~~
