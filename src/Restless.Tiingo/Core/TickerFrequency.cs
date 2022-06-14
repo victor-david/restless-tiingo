@@ -1,6 +1,6 @@
 ﻿namespace Restless.Tiingo.Core
 {
-    public enum ResampleFrequency
+    public enum TickerFrequency
     {
         /// <summary>
         /// Values returned as daily periods, with a holiday calendar

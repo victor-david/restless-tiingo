@@ -48,7 +48,7 @@ namespace Restless.Tiingo.Core
             return this;
         }
 
-        public UrlBuilder AddResampleFrequency(ResampleFrequency frequency)
+        public UrlBuilder AddResampleFrequency(TickerFrequency frequency)
         {
             parms.AddIfValid(Values.FrequencyParm, frequency.ToString().ToLowerInvariant());
             return this;
