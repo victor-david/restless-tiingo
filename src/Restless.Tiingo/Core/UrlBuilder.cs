@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Text;
 
 namespace Restless.Tiingo.Core
@@ -48,18 +47,6 @@ namespace Restless.Tiingo.Core
             return this;
         }
 
-        public UrlBuilder AddResampleFrequency(TickerFrequency frequency)
-        {
-            parms.AddIfValid(Values.FrequencyParm, frequency.ToString().ToLowerInvariant());
-            return this;
-        }
-
-        public UrlBuilder AddSort(SortOption sort)
-        {
-            parms.AddIfValid(Values.SortParm, SortOptionToSortParm(sort));
-            return this;
-        }
-
         public UrlBuilder AddValue(string parmName, int value)
         {
             parms.AddIfValid(parmName, value.ToString());
@@ -91,15 +78,6 @@ namespace Restless.Tiingo.Core
         #endregion
 
         #region Private methods
-        private string SortOptionToSortParm(SortOption sort)
-        {
-            return sort switch
-            {
-                SortOption.DateAscending => "date",
-                SortOption.DateDescending => "-date",
-                _ => string.Empty
-            };
-        }
         private string StringArrayToParm(string[] values)
         {
             StringBuilder builder = new();

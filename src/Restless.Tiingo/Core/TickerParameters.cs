@@ -2,13 +2,33 @@
 {
     public class TickerParameters : ApiParameters
     {
-        public TickerFrequency Frequency { get; set; }
         public SortOption Sort { get; set; }
 
         public TickerParameters()
         {
-            Frequency = TickerFrequency.Daily;
             Sort = SortOption.None;
+        }
+
+        internal string GetFrequencyParameter()
+        {
+            // resampleFreq must be in 'daily', 'weekly','monthly', 'annually'
+            return Frequency switch
+            {
+                FrequencyUnit.Month => "monthly",
+                FrequencyUnit.Week => "weekly",
+                FrequencyUnit.Year => "annually",
+                _ => "daily"
+            };
+        }
+
+        internal string GetSortParameter()
+        {
+            return Sort switch
+            {
+                SortOption.DateAscending => "date",
+                SortOption.DateDescending => "-date",
+                _ => string.Empty
+            };
         }
     }
 }

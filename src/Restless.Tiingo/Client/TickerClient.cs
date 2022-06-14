@@ -31,7 +31,7 @@ namespace Restless.Tiingo.Client
         }
 
         /// <summary>
-        /// Gets a collection of stock data points for the specified ticker
+        /// Gets a collection of ticker data points for the specified ticker
         /// </summary>
         /// <param name="ticker">The ticker</param>
         /// <param name="parms">The operation options</param>
@@ -45,8 +45,8 @@ namespace Restless.Tiingo.Client
                 .AddFormat(Values.JsonFormat)
                 .AddDate(Values.StartDateParm, parms.StartDate)
                 .AddDate(Values.EndDateParm, parms.EndDate)
-                .AddResampleFrequency(parms.Frequency)
-                .AddSort(parms.Sort);
+                .AddValue(Values.FrequencyParm, parms.GetFrequencyParameter())
+                .AddValue(Values.SortParm, parms.GetSortParameter());
 
             string json = await GetRawJsonAsync(builder.Url);
             return JsonSerializer.Deserialize<TickerDataPointCollection>(json);
