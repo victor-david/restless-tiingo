@@ -6,11 +6,14 @@
         public const string CsvFormat = "csv";
         public const string EndDateParm = "endDate";
         public const string ErrorDetailJson = "{\"detail\":";
+        public const string ExactTickerMatchParm = "exactTickerMatch";
         public const string FrequencyParm = "resampleFreq";
         public const string JsonContent = "application/json";
         public const string JsonFormat = "json";
+        public const string IncludeDelistedParm = "includeDelisted";
         public const string LimitParm = "limit";
         public const string OctetStreamContent = "application/octet-stream";
+        public const string QueryParm = "query";
         public const string ResultFormatParm = "format";
         public const string SortParm = "sort";
         public const string SortByParm = "sortBy";

@@ -72,6 +72,12 @@ namespace Restless.Tiingo.Core
             return this;
         }
 
+        public UrlBuilder AddBoolean(string parmName, bool value)
+        {
+            parms.AddIfValid(parmName, value ? "true" : "false");
+            return this;
+        }
+
         public UrlBuilder AddArray(string parmName, string[] values)
         {
             parms.AddIfValid(parmName, StringArrayToParm(values));

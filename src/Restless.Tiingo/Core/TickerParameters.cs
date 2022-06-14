@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Restless.Tiingo.Core
+﻿namespace Restless.Tiingo.Core
 {
     public class TickerParameters : ApiParameters
     {
