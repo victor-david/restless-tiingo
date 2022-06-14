@@ -8,6 +8,7 @@ namespace Restless.Tiingo.Core
 
         public const int MinLimit = 10;
         public const int MaxLimit = 100;
+        public const int DefaultLimit = 25;
 
         /// <summary>
         /// True to only include exact ticker matches based on the search query.
@@ -35,7 +36,7 @@ namespace Restless.Tiingo.Core
         /// </summary>
         public SearchParameters()
         {
-            Limit = MinLimit;
+            Limit = DefaultLimit;
         }
     }
 }

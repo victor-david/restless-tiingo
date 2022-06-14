@@ -14,8 +14,13 @@ namespace Restless.Tiingo.Client
         {
         }
 
-
-        public async Task<SearchResultCollection> GetSearchResults(string search, SearchParameters parms)
+        /// <summary>
+        /// Gets a collection of search results.
+        /// </summary>
+        /// <param name="search">The search query</param>
+        /// <param name="parms">The search parameters</param>
+        /// <returns>A <see cref="SearchResultCollection"/></returns>
+        public async Task<SearchResultCollection> GetSearchResultsAsync(string search, SearchParameters parms)
         {
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/utilities/search/{search}")
