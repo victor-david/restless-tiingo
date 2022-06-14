@@ -9,13 +9,21 @@ using System.Threading.Tasks;
 
 namespace Restless.Tiingo.Client
 {
-    public class TickersClient : AuxiliaryClient
+    /// <summary>
+    /// Represents a client for obtaining ticker data via the supported tickers zip file
+    /// </summary>
+    /// <remarks>
+    /// This class provides access to the supported_tickers.zip file published and updated by Tiingo.
+    /// Another alternative for obtaining information about supported tickers is via the search api
+    /// which can be accessed using the <see cref="SearchClient"/>.
+    /// </remarks>
+    public class TickerDataClient : AuxiliaryClient
     {
         private const string TickerZipUrl = "https://apimedia.tiingo.com/docs/tiingo/daily/supported_tickers.zip";
         private const string TickerTempFile = "TICKERS-DB6E92E3-59AC-40DD-8A06-279950AC7CB9";
         private const int MaxTempFileAgeMinutes = 60 * 16;
 
-        internal TickersClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
+        internal TickerDataClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
         {
         }
 

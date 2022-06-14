@@ -1,13 +1,13 @@
 ﻿using Restless.Tiingo.Core;
 using Restless.Tiingo.Data;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Restless.Tiingo.Client
 {
+    /// <summary>
+    /// Represents a client for obtaing search results
+    /// </summary>
     public class SearchClient : AuxiliaryClient
     {
         internal SearchClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)

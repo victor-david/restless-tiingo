@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace Restless.Tiingo.Client
 {
     /// <summary>
-    /// Represents a client for obtaining stock information
+    /// Represents a client for obtaining ticker information (meta data, prices)
     /// </summary>
-    public class StocksClient : AuxiliaryClient
+    public class TickerClient : AuxiliaryClient
     {
-        internal StocksClient(IHttpClientWrapper client, string apiToken)  :base(client, apiToken)
+        internal TickerClient(IHttpClientWrapper client, string apiToken)  :base(client, apiToken)
         {
         }
 
@@ -20,7 +20,7 @@ namespace Restless.Tiingo.Client
         /// </summary>
         /// <param name="ticker">The ticker</param>
         /// <returns></returns>
-        public async Task<TickerMetaData> GetMetaAsync(string ticker)
+        public async Task<TickerMetaData> GetMetaDataAsync(string ticker)
         {
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}")

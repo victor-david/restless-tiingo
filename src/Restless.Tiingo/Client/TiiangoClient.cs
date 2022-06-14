@@ -38,19 +38,19 @@ namespace Restless.Tiingo.Client
             client = new DefaultHttpClientWrapper(new HttpClient());
             client.SetTimeOut(timeout);
             _ = ValidateApiToken(apiToken);
-            Stocks = new StocksClient(client, apiToken);
+            Ticker = new TickerClient(client, apiToken);
             Forex = new ForexClient(client, apiToken);
             News = new NewsClient(client, apiToken);
-            Tickers = new TickersClient(client, apiToken);
+            TickerData = new TickerDataClient(client, apiToken);
             Search = new SearchClient(client, apiToken);
         }
         #endregion
 
         #region Properties
         /// <summary>
-        /// Gets the stocks client
+        /// Gets the tickers client
         /// </summary>
-        public StocksClient Stocks { get; }
+        public TickerClient Ticker { get; }
 
         /// <summary>
         /// Gets the forex client
@@ -65,7 +65,7 @@ namespace Restless.Tiingo.Client
         /// <summary>
         /// Gets the tickers client
         /// </summary>
-        public TickersClient Tickers { get; }
+        public TickerDataClient TickerData { get; }
 
         /// <summary>
         /// Gets the search client
