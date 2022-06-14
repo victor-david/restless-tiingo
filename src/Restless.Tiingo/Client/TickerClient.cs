@@ -35,8 +35,8 @@ namespace Restless.Tiingo.Client
         /// </summary>
         /// <param name="ticker">The ticker</param>
         /// <param name="parms">The operation options</param>
-        /// <returns>A <see cref="StockDataPointCollection"/></returns>
-        public async Task<StockDataPointCollection> GetDataPointsAsync(string ticker, TickerParameters parms)
+        /// <returns>A <see cref="TickerDataPointCollection"/></returns>
+        public async Task<TickerDataPointCollection> GetDataPointsAsync(string ticker, TickerParameters parms)
         {
             _ = parms ?? throw new ArgumentNullException(nameof(parms));
 
@@ -49,7 +49,7 @@ namespace Restless.Tiingo.Client
                 .AddSort(parms.Sort);
 
             string json = await GetRawJsonAsync(builder.Url);
-            return JsonSerializer.Deserialize<StockDataPointCollection>(json);
+            return JsonSerializer.Deserialize<TickerDataPointCollection>(json);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Restless.Tiingo.Data
 {
-    public class StockDataPoint : DataPoint
+    public class TickerDataPoint : DataPoint
     {
         [JsonPropertyName("adjClose")]
         public decimal AdjustedClose { get; set; }
