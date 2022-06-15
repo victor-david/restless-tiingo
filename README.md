@@ -1,6 +1,12 @@
 # Restless Tiingo
 
-Restless Tiiango is a .Net library that enables you to access financial data from the Tiiango service.
+**Restless Tiingo** is a .Net library that enables you to access financial data from the Tiingo service.
+The following services are supported:
+
+- Ticker - Provides ticker meta data and prices
+- News - Provides access to the Tiingo news feed
+- Search - Enables you to query the Tiingo service to obtain supported symbols, etc.
+- Crypto - Provides access to crypto prices and meta data
 
 ## Usage examples
 
@@ -13,9 +19,9 @@ private async void GetInfo()
 {
     using (TiiangoClient client = TiiangoClient.Create("apitoken"))
     {
-        TickerMeta data = await client.Stocks.GetMetaAsync("msft");
+        TickerMetaData data = await client.Ticker.GetMetaDataAsync("msft");
 
-        StockDataPointCollection result = await client.Stocks.GetDataPointsAsync("msft", new TickerParameters()
+        TickerDataPointCollection points = await client.Ticker.GetDataPointsAsync("msft", new TickerParameters()
         {
             StartDate = new DateTime(2020, 5, 15),
         });
@@ -23,15 +29,15 @@ private async void GetInfo()
         NewsItemCollection news = await client.News.GetNewsAsync(new NewsParameters()
         {
             StartDate = new DateTime(2022, 6, 6),
-            Tickers = new string[] {"msft","sbux" },
+            Tickers = new string[] { "msft", "sbux" },
             Sources = new string[] { "bloomberg.com" },
             Limit = 10
         });
-        
-        SearchResultCollection results = await client.Search.GetSearchResults("dow jones", new SearchParameters()
+
+        SearchResultCollection results = await client.Search.GetSearchResultsAsync("dow jones", new SearchParameters()
         {
             Limit = 50
-        });        
+        });
     }
 }
 ~~~
