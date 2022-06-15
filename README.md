@@ -17,7 +17,7 @@ using Restless.Tiingo.Data;
 
 private async void GetInfo()
 {
-    using (TiiangoClient client = TiiangoClient.Create("apitoken"))
+    using (TiingoClient client = TiingoClient.Create("apitoken"))
     {
         TickerMetaData data = await client.Ticker.GetMetaDataAsync("msft");
 
