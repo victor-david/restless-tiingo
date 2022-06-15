@@ -3,14 +3,19 @@ using System;
 
 namespace Restless.Tiingo.Core
 {
-    public class ForexParameters : ApiParameters, IValidator
+    public class CryptoParameters : ApiParameters, IValidator
     {
-        public TickerPair Ticker { get; set; }
+        public TickerPair[] Tickers { get; set; }
 
+        #region IValidator
         public void Validate()
         {
-            _ = Ticker ?? throw new ArgumentNullException(nameof(Ticker));
+            if ((Tickers?.Length ?? 0) == 0)
+            {
+                throw new ArgumentException("Tickers must contain at least one entry");
+            }
         }
+        #endregion
 
         /// <inheritdoc/>
         protected internal override string GetFrequencyParameter()

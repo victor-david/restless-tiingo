@@ -3,6 +3,7 @@ using Restless.Tiingo.Data;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -40,10 +41,9 @@ namespace Restless.Tiingo.Client
                 AddAuthorizationHeader(request);
 
                 HttpResponseMessage response = await Client.SendAsync(request).ConfigureAwait(false);
-                response.EnsureSuccessStatusCode();
-
                 string json = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                return GetErrorResponse(ref json) is ErrorResponse error ? throw new ApiException(error.Message) : json;
+
+                return ValidateResponse(response, json);
             }
         }
 
@@ -57,6 +57,23 @@ namespace Restless.Tiingo.Client
                 response.EnsureSuccessStatusCode();
 
                 return await response.Content.ReadAsByteArrayAsync().ConfigureAwait(false);
+            }
+        }
+
+        protected void ValidateParms(params object[] parms)
+        {
+            foreach (object parm in parms)
+            {
+                _ = parm ?? throw new ArgumentNullException(nameof(parm));
+                if (parm is string str && string.IsNullOrWhiteSpace(str))
+                {
+                    throw new ArgumentException("Invalid parameter");
+                }
+
+                if (parm is IValidator item)
+                {
+                    item.Validate();
+                }
             }
         }
         #endregion
@@ -78,17 +95,45 @@ namespace Restless.Tiingo.Client
             request.Headers.Authorization = new AuthenticationHeaderValue("Token", apiToken);
         }
 
+        private string ValidateResponse(HttpResponseMessage response, string json)
+        {
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new ApiException($"{(int)response.StatusCode} {response.ReasonPhrase} {ExtractErrorMessage(json)}");
+            }
 
-        private ErrorResponse GetErrorResponse(ref string json)
+            return json;
+        }
+
+        private string ExtractErrorMessage(string json)
+        {
+            // Some errors return json (object) like this:
+            //   {"detail": "An error message"};
+            //
+            // Others like this (array):
+            //   ["Error: Tickers must be a comma-separated list of tickers, e.g. AAPL,TSLA if querying historical data"]
+
+            return GetErrorResponse<string[]>(json) is string[] array
+                ? StringArrayToString(array)
+                : GetErrorResponse<ErrorResponse>(json) is ErrorResponse response ? response.Message : json;
+        }
+
+        private T GetErrorResponse<T>(string json) where T : class
         {
             try
             {
-                return json.StartsWith(Values.ErrorDetailJson) ? JsonSerializer.Deserialize<ErrorResponse>(json) : null;
+                return JsonSerializer.Deserialize<T>(json);
             }
             catch
             {
                 return null;
             }
+        }
+
+        private string StringArrayToString(string[] values)
+        {
+            StringBuilder builder = new();
+            return builder.AppendJoin(Environment.NewLine, values).ToString();
         }
         #endregion
     }

@@ -5,7 +5,6 @@
         public const string ApiRoot = "https://api.tiingo.com/tiingo";
         public const string CsvFormat = "csv";
         public const string EndDateParm = "endDate";
-        public const string ErrorDetailJson = "{\"detail\":";
         public const string ExactTickerMatchParm = "exactTickerMatch";
         public const string FrequencyParm = "resampleFreq";
         public const string JsonContent = "application/json";

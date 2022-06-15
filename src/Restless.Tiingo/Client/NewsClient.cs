@@ -21,6 +21,8 @@ namespace Restless.Tiingo.Client
         /// <returns>A <see cref="NewsItemCollection"/></returns>
         public async Task<NewsItemCollection> GetNewsAsync(NewsParameters parms)
         {
+            ValidateParms(parms);
+
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/news")
                 .AddFormat(Values.JsonFormat)

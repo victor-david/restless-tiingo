@@ -18,16 +18,14 @@ namespace Restless.Tiingo.Client
         /// <summary>
         /// Gets a collection of forex data points for the specified symbols
         /// </summary>
-        /// <param name="fromSymbol">The from currency symbol</param>
-        /// <param name="toSymbol">The to currency symbol</param>
         /// <param name="parms">The operation options</param>
         /// <returns>A <see cref="ForexDataPointCollection"/></returns>
-        public async Task<ForexDataPointCollection> GetDataPointsAsync(string fromSymbol, string toSymbol, ForexParameters parms)
+        public async Task<ForexDataPointCollection> GetDataPointsAsync(ForexParameters parms)
         {
-            _ = parms ?? throw new ArgumentNullException(nameof(parms));
+            ValidateParms(parms);
 
             UrlBuilder builder =
-                UrlBuilder.Create($"{Values.ApiRoot}/fx/{fromSymbol}{toSymbol}/prices")
+                UrlBuilder.Create($"{Values.ApiRoot}/fx/{parms.Ticker}/prices")
                 .AddFormat(Values.JsonFormat)
                 .AddDate(Values.StartDateParm, parms.StartDate)
                 .AddDate(Values.EndDateParm, parms.EndDate)

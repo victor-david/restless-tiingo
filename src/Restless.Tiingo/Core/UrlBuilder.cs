@@ -65,9 +65,9 @@ namespace Restless.Tiingo.Core
             return this;
         }
 
-        public UrlBuilder AddArray(string parmName, string[] values)
+        public UrlBuilder AddArray(string parmName, object[] values)
         {
-            parms.AddIfValid(parmName, StringArrayToParm(values));
+            parms.AddIfValid(parmName, ArrayToParm(values));
             return this;
         }
 
@@ -78,16 +78,10 @@ namespace Restless.Tiingo.Core
         #endregion
 
         #region Private methods
-        private string StringArrayToParm(string[] values)
+        private string ArrayToParm(object[] values)
         {
             StringBuilder builder = new();
-            int count = 0;
-            foreach (string value in values ?? new string[] { })
-            {
-                builder.Append(count++ == 0 ? string.Empty : ",");
-                builder.Append(value);
-            }
-
+            builder.AppendJoin(",", values);
             return builder.ToString();
         }
         #endregion

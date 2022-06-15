@@ -2,6 +2,7 @@
 {
     public class TickerParameters : ApiParameters
     {
+        public string Ticker { get; set; }
         public SortOption Sort { get; set; }
 
         public TickerParameters()
@@ -9,7 +10,8 @@
             Sort = SortOption.None;
         }
 
-        internal string GetFrequencyParameter()
+        /// <inheritdoc/>
+        protected internal override string GetFrequencyParameter()
         {
             // resampleFreq must be in 'daily', 'weekly','monthly', 'annually'
             return Frequency switch

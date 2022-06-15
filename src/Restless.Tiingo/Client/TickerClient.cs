@@ -22,6 +22,8 @@ namespace Restless.Tiingo.Client
         /// <returns></returns>
         public async Task<TickerMetaData> GetMetaDataAsync(string ticker)
         {
+            ValidateParms(ticker);
+
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}")
                 .AddFormat(Values.JsonFormat);
@@ -33,15 +35,14 @@ namespace Restless.Tiingo.Client
         /// <summary>
         /// Gets a collection of ticker data points for the specified ticker
         /// </summary>
-        /// <param name="ticker">The ticker</param>
         /// <param name="parms">The operation options</param>
         /// <returns>A <see cref="TickerDataPointCollection"/></returns>
-        public async Task<TickerDataPointCollection> GetDataPointsAsync(string ticker, TickerParameters parms)
+        public async Task<TickerDataPointCollection> GetDataPointsAsync(TickerParameters parms)
         {
-            _ = parms ?? throw new ArgumentNullException(nameof(parms));
+            ValidateParms(parms, parms.Ticker);
 
             UrlBuilder builder =
-                UrlBuilder.Create($"{Values.ApiRoot}/daily/{ticker}/prices")
+                UrlBuilder.Create($"{Values.ApiRoot}/daily/{parms.Ticker}/prices")
                 .AddFormat(Values.JsonFormat)
                 .AddDate(Values.StartDateParm, parms.StartDate)
                 .AddDate(Values.EndDateParm, parms.EndDate)
