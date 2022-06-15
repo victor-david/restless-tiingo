@@ -40,6 +40,7 @@ namespace Restless.Tiingo.Client
             _ = ValidateApiToken(apiToken);
             Ticker = new TickerClient(client, apiToken);
             Forex = new ForexClient(client, apiToken);
+            Crypto = new CryptoClient(client, apiToken);
             News = new NewsClient(client, apiToken);
             TickerData = new TickerDataClient(client, apiToken);
             Search = new SearchClient(client, apiToken);
@@ -56,6 +57,11 @@ namespace Restless.Tiingo.Client
         /// Gets the forex client
         /// </summary>
         public ForexClient Forex { get; }
+
+        /// <summary>
+        /// Gets the crypto client
+        /// </summary>
+        public CryptoClient Crypto { get; }
 
         /// <summary>
         /// Gets the news client
