@@ -3,7 +3,7 @@ using System.Net.Http;
 
 namespace Restless.Tiingo.Client
 {
-    public class TiiangoClient : IDisposable
+    public class TiingoClient : IDisposable
     {
         #region Private
         private readonly IHttpClientWrapper client;
@@ -11,29 +11,29 @@ namespace Restless.Tiingo.Client
 
         #region Constructors
         /// <summary>
-        /// Creates a new instance of the <see cref="TiiangoClient"/> class
+        /// Creates a new instance of the <see cref="TiingoClient"/> class
         /// with the default client wrapper and the default timeout
         /// </summary>
         /// <param name="apiToken">The api token</param>
-        /// <returns>An instance of <see cref="TiiangoClient"/></returns>
-        public static TiiangoClient Create(string apiToken)
+        /// <returns>An instance of <see cref="TiingoClient"/></returns>
+        public static TiingoClient Create(string apiToken)
         {
-            return new TiiangoClient(apiToken, new TimeSpan(0,0,30));
+            return new TiingoClient(apiToken, new TimeSpan(0,0,30));
         }
 
         /// <summary>
-        /// Creates a new instance of the <see cref="TiiangoClient"/> class
+        /// Creates a new instance of the <see cref="TiingoClient"/> class
         /// with the default client wrapper and the specified timeout
         /// </summary>
         /// <param name="apiToken">The api token</param>
         /// <param name="timeout">The desired timeout</param>
-        /// <returns>An instance of <see cref="TiiangoClient"/></returns>
-        public static TiiangoClient Create(string apiToken, TimeSpan timeout)
+        /// <returns>An instance of <see cref="TiingoClient"/></returns>
+        public static TiingoClient Create(string apiToken, TimeSpan timeout)
         {
-            return new TiiangoClient(apiToken, timeout);
+            return new TiingoClient(apiToken, timeout);
         }
 
-        private TiiangoClient(string apiToken, TimeSpan timeout)
+        private TiingoClient(string apiToken, TimeSpan timeout)
         {
             client = new DefaultHttpClientWrapper(new HttpClient());
             client.SetTimeOut(timeout);
