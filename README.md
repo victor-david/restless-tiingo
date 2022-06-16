@@ -64,9 +64,6 @@ ForexDataPointCollection forexData = await client.Forex.GetDataPointsAsync(new F
 
 forexData.ForEach(item =>
 {
-    if (item.Close > item.Open)
-    {
-    }
 });
 
 // dispose of client
