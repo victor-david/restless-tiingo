@@ -10,51 +10,67 @@ The following services are supported:
 
 ## Usage examples
 
+
 ~~~c#
 using Restless.Tiingo.Client;
 using Restless.Tiingo.Core;
 using Restless.Tiingo.Data;
+~~~
 
-private async void GetInfo()
+~~~c#
+// Create a client (other Create() overloads available)
+TiingoClient client = TiingoClient.Create("apiToken");
+
+// Get ticker meta data
+TickerMetaData tickerMeta = await client.Ticker.GetMetaDataAsync("msft");
+if (tickerMeta.ExchangeCode == "NYSE")
 {
-    using (TiingoClient client = TiingoClient.Create("apitoken"))
-    {
-        TickerMetaData data = await client.Ticker.GetMetaDataAsync("msft");
-
-        TickerDataPointCollection points = await client.Ticker.GetDataPointsAsync(new TickerParameters()
-        {
-            Ticker = "msft",
-            StartDate = new DateTime(2022, 1, 1),
-            Frequency = FrequencyUnit.Week,
-            FrequencyValue = 1
-        });
-
-        CryptoDataCollection crypto = await client.Crypto.GetDataPointsAsync(new CryptoParameters()
-        {
-            Tickers = new TickerPair[]
-            {
-                new TickerPair("btc", "usd"),
-                new TickerPair("btc", "eur")
-            },
-            StartDate = new DateTime(2022, 1, 1),
-            Frequency = FrequencyUnit.Day,
-            FrequencyValue = 1,
-        });
-
-        NewsItemCollection news = await client.News.GetNewsAsync(new NewsParameters()
-        {
-            StartDate = new DateTime(2022, 1, 1),
-            Tickers = new string[] { "msft", "sbux" },
-            Sources = new string[] { "bloomberg.com" },
-            Limit = 10
-        });
-
-        SearchResultCollection results = await client.Search.GetSearchResultsAsync("dow jones", new SearchParameters()
-        {
-            Limit = 50
-        });
-    }
 }
+
+// Get price data points for a ticker
+TickerDataPointCollection tickerData = await client.Ticker.GetDataPointsAsync(new TickerParameters()
+{
+    Ticker = "msft",
+    StartDate = new DateTime(2022, 1, 1),
+    Frequency = FrequencyUnit.Week,
+    FrequencyValue = 1
+});
+
+tickerData.ForEach(item =>
+{
+    if (item.AdjustedClose > item.AdjustedOpen)
+    {
+    }
+});
+
+// Get supported forex pairs
+ForexMetaDataCollection forexMeta = await client.Forex.GetSupportedMetaDataAsync();
+forexMeta.ForEach(item =>
+{
+    // Note: Tiingo delivers some symbols upper case, some lower
+    if (item.BaseCurrency.ToLowerInvariant() == "usd")
+    {
+    }
+});
+
+// Get all available daily forex rates for USD/MXN
+ForexDataPointCollection forexData = await client.Forex.GetDataPointsAsync(new ForexParameters()
+{
+    Ticker = new TickerPair("usd", "mxn"),
+    StartDate = DateTime.MinValue,
+    Frequency = FrequencyUnit.Day,
+    FrequencyValue = 1
+});
+
+forexData.ForEach(item =>
+{
+    if (item.Close > item.Open)
+    {
+    }
+});
+
+// dispose of client
+client.Dispose();
 ~~~
 
 Note: In a production app, the client should not be so short lived. Normally, its something you create
