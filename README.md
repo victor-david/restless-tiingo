@@ -21,14 +21,29 @@ private async void GetInfo()
     {
         TickerMetaData data = await client.Ticker.GetMetaDataAsync("msft");
 
-        TickerDataPointCollection points = await client.Ticker.GetDataPointsAsync("msft", new TickerParameters()
+        TickerDataPointCollection points = await client.Ticker.GetDataPointsAsync(new TickerParameters()
         {
-            StartDate = new DateTime(2020, 5, 15),
+            Ticker = "msft",
+            StartDate = new DateTime(2022, 1, 1),
+            Frequency = FrequencyUnit.Week,
+            FrequencyValue = 1
+        });
+
+        CryptoDataCollection crypto = await client.Crypto.GetDataPointsAsync(new CryptoParameters()
+        {
+            Tickers = new TickerPair[]
+            {
+                new TickerPair("btc", "usd"),
+                new TickerPair("btc", "eur")
+            },
+            StartDate = new DateTime(2022, 1, 1),
+            Frequency = FrequencyUnit.Day,
+            FrequencyValue = 1,
         });
 
         NewsItemCollection news = await client.News.GetNewsAsync(new NewsParameters()
         {
-            StartDate = new DateTime(2022, 6, 6),
+            StartDate = new DateTime(2022, 1, 1),
             Tickers = new string[] { "msft", "sbux" },
             Sources = new string[] { "bloomberg.com" },
             Limit = 10
