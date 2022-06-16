@@ -10,7 +10,7 @@ namespace Restless.Tiingo.Client
 
         public DefaultHttpClientWrapper(HttpClient httpClient)
         {
-            client = httpClient;
+            client = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
         public void SetTimeOut(TimeSpan timeSpan)

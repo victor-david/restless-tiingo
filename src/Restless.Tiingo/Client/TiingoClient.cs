@@ -9,33 +9,64 @@ namespace Restless.Tiingo.Client
         private readonly IHttpClientWrapper client;
         #endregion
 
+        #region Static fields
+        /// <summary>
+        /// Gets the default timeout (30 seconds)
+        /// </summary>
+        public static readonly TimeSpan DefaultTimeout = new(0, 0, 30);
+        #endregion
+
         #region Constructors
         /// <summary>
-        /// Creates a new instance of the <see cref="TiingoClient"/> class
-        /// with the default client wrapper and the default timeout
+        /// Creates a new instance of <see cref="TiingoClient"/> with the default 
+        /// client wrapper and <see cref="DefaultTimeout"/>
         /// </summary>
         /// <param name="apiToken">The api token</param>
         /// <returns>An instance of <see cref="TiingoClient"/></returns>
         public static TiingoClient Create(string apiToken)
         {
-            return new TiingoClient(apiToken, new TimeSpan(0,0,30));
+            return new TiingoClient(apiToken, new DefaultHttpClientWrapper(new HttpClient()), DefaultTimeout);
         }
 
         /// <summary>
-        /// Creates a new instance of the <see cref="TiingoClient"/> class
-        /// with the default client wrapper and the specified timeout
+        /// Creates a new instance of <see cref="TiingoClient"/> with the default
+        /// client wrapper and the specified timeout
         /// </summary>
         /// <param name="apiToken">The api token</param>
         /// <param name="timeout">The desired timeout</param>
         /// <returns>An instance of <see cref="TiingoClient"/></returns>
         public static TiingoClient Create(string apiToken, TimeSpan timeout)
         {
-            return new TiingoClient(apiToken, timeout);
+            return new TiingoClient(apiToken, new DefaultHttpClientWrapper(new HttpClient()), timeout);
         }
 
-        private TiingoClient(string apiToken, TimeSpan timeout)
+        /// <summary>
+        /// Creates a new instance of <see cref="TiingoClient"/> with the specified
+        /// http client and <see cref="DefaultTimeout"/>
+        /// </summary>
+        /// <param name="apiToken">The api token</param>
+        /// <param name="httpClient">The http client</param>
+        /// <returns>An instance of <see cref="TiingoClient"/></returns>
+        public static TiingoClient Create(string apiToken, HttpClient httpClient)
         {
-            client = new DefaultHttpClientWrapper(new HttpClient());
+            return new TiingoClient(apiToken, new DefaultHttpClientWrapper(httpClient), DefaultTimeout);
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="TiingoClient"/> with the specified
+        /// http client wrapper and <see cref="DefaultTimeout"/>
+        /// </summary>
+        /// <param name="apiToken">The api token</param>
+        /// <param name="clientWrapper">The http client wrapper</param>
+        /// <returns>An instance of <see cref="TiingoClient"/></returns>
+        public static TiingoClient Create(string apiToken, IHttpClientWrapper clientWrapper)
+        {
+            return new TiingoClient(apiToken, clientWrapper, DefaultTimeout);
+        }
+
+        private TiingoClient(string apiToken, IHttpClientWrapper clientWrapper, TimeSpan timeout)
+        {
+            client = clientWrapper ?? throw new ArgumentNullException(nameof(clientWrapper));
             client.SetTimeOut(timeout);
             _ = ValidateApiToken(apiToken);
             Ticker = new TickerClient(client, apiToken);
