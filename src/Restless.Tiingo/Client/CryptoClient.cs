@@ -14,6 +14,20 @@ namespace Restless.Tiingo.Client
         {
         }
 
+        /// <summary>
+        /// Gets a collection of crypto meta data for all supported crypto pairs
+        /// </summary>
+        /// <returns>A <see cref="CryptoMetaDataCollection"/></returns>
+        public async Task<CryptoMetaDataCollection> GetSupportedMetaDataAsync()
+        {
+            UrlBuilder builder =
+                UrlBuilder.Create($"{Values.ApiRoot}/crypto")
+                .AddFormat(Values.JsonFormat);
+
+            string json = await GetRawJsonAsync(builder.Url);
+            return JsonSerializer.Deserialize<CryptoMetaDataCollection>(json);
+        }
+
         public async Task GetTopOfBookAsync(CryptoParameters parms)
         {
             ValidateParms(parms);
@@ -26,6 +40,11 @@ namespace Restless.Tiingo.Client
             string json = await GetRawJsonAsync(builder.Url);
         }
 
+        /// <summary>
+        /// Gets a collection of crypto data
+        /// </summary>
+        /// <param name="parms">The operation parameters</param>
+        /// <returns>A <see cref="CryptoDataCollection"/></returns>
         public async Task<CryptoDataCollection> GetDataPointsAsync(CryptoParameters parms)
         {
             ValidateParms(parms);
