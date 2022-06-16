@@ -20,11 +20,14 @@ namespace Restless.Tiingo.Client
         /// <param name="search">The search query</param>
         /// <param name="parms">The search parameters</param>
         /// <returns>A <see cref="SearchResultCollection"/></returns>
-        public async Task<SearchResultCollection> GetSearchResultsAsync(string search, SearchParameters parms)
+        public async Task<SearchResultCollection> GetResultsAsync(SearchParameters parms)
         {
+            ValidateParms(parms);
+
             UrlBuilder builder =
-                UrlBuilder.Create($"{Values.ApiRoot}/utilities/search/{search}")
+                UrlBuilder.Create($"{Values.ApiRoot}/utilities/search")
                 .AddFormat(Values.JsonFormat)
+                .AddValue(Values.QueryParm, parms.Query)
                 .AddBoolean(Values.ExactTickerMatchParm, parms.ExactTickerMatch)
                 .AddBoolean(Values.IncludeDelistedParm, parms.IncludeDelisted)
                 .AddValue(Values.LimitParm, parms.Limit);              

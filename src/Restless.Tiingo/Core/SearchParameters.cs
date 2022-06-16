@@ -1,14 +1,20 @@
-﻿using System;
+﻿using Restless.Tiingo.Data;
+using System;
 
 namespace Restless.Tiingo.Core
 {
-    public class SearchParameters
+    public class SearchParameters : IValidator
     {
         private int limit;
 
         public const int MinLimit = 10;
         public const int MaxLimit = 100;
         public const int DefaultLimit = 25;
+
+        /// <summary>
+        /// The search query
+        /// </summary>
+        public string Query { get; set; }
 
         /// <summary>
         /// True to only include exact ticker matches based on the search query.
@@ -37,6 +43,14 @@ namespace Restless.Tiingo.Core
         public SearchParameters()
         {
             Limit = DefaultLimit;
+        }
+
+        public void Validate()
+        {
+            if (string.IsNullOrWhiteSpace(Query))
+            {
+                throw new ArgumentException("Query must contain a value");
+            }
         }
     }
 }
