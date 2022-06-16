@@ -1,6 +1,5 @@
 ﻿using Restless.Tiingo.Core;
 using Restless.Tiingo.Data;
-using System;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -13,6 +12,20 @@ namespace Restless.Tiingo.Client
     {
         internal ForexClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
         {
+        }
+
+        /// <summary>
+        /// Gets a collection of forex meta data for all supported forex pairs
+        /// </summary>
+        /// <returns>A <see cref="ForexMetaDataCollection"/></returns>
+        public async Task<ForexMetaDataCollection> GetSupportedMetaDataAsync()
+        {
+            UrlBuilder builder =
+                UrlBuilder.Create($"{Values.ApiRoot}/fx")
+                .AddFormat(Values.JsonFormat);
+
+            string json = await GetRawJsonAsync(builder.Url);
+            return JsonSerializer.Deserialize<ForexMetaDataCollection>(json);
         }
 
         /// <summary>
