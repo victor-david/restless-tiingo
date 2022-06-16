@@ -1,6 +1,9 @@
 ﻿namespace Restless.Tiingo.Core
 {
-    public class TickerParameters : ApiParameters
+    /// <summary>
+    /// Represents parameters used in a ticker operation
+    /// </summary>
+    public class TickerParameters : FrequencyParameters
     {
         public string Ticker { get; set; }
         public SortOption Sort { get; set; }
