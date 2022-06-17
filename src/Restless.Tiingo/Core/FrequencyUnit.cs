@@ -9,14 +9,14 @@
     /// when creating the frequency string that goes into the url; they will
     /// transform unsupported frequency units into a default.
     /// </remarks>
-    public enum FrequencyUnit : long
+    public enum FrequencyUnit
     {
-        None = 0,
-        Minute = 1,
-        Hour = 60,
-        Day = 60 * 24,
-        Week = 60 * 24 * 7,
-        Month = 60 * 24 * 30,
-        Year = 60 * 24 * 365
+        None,
+        Minute,
+        Hour,
+        Day,
+        Week,
+        Month,
+        Year
     }
 }

@@ -45,7 +45,7 @@ namespace Restless.Tiingo.Client
                 .AddValue(Values.FrequencyParm, parms.GetFrequencyParameter());
 
             string json = await GetRawJsonAsync(builder.Url);
-            return (ForexDataPointCollection)JsonSerializer.Deserialize<ForexDataPointCollection>(json).UpdateInterval(parms.Interval);
+            return JsonSerializer.Deserialize<ForexDataPointCollection>(json);
         }
     }
 }

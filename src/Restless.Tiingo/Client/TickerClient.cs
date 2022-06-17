@@ -50,7 +50,7 @@ namespace Restless.Tiingo.Client
                 .AddValue(Values.SortParm, parms.GetSortParameter());
 
             string json = await GetRawJsonAsync(builder.Url);
-            return (TickerDataPointCollection)JsonSerializer.Deserialize<TickerDataPointCollection>(json).UpdateInterval(parms.Interval);
+            return JsonSerializer.Deserialize<TickerDataPointCollection>(json);
         }
     }
 }
