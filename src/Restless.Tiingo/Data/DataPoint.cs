@@ -19,5 +19,7 @@ namespace Restless.Tiingo.Data
 
         [JsonPropertyName("open")]
         public decimal Open { get; set; }
+
+        public long Interval { get; internal set; }
     }
 }

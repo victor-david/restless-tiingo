@@ -9,6 +9,7 @@ namespace Restless.Tiingo.Core
     {
         public FrequencyUnit Frequency { get; set; }
         public int FrequencyValue { get; set; }
+        public long Interval => (long)Frequency * FrequencyValue;
 
         protected FrequencyParameters()
         {

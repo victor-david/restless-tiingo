@@ -5,7 +5,7 @@ namespace Restless.Tiingo.Data
     /// <summary>
     /// Represents a collection of <see cref="TickerDataPoint"/> objects
     /// </summary>
-    public class TickerDataPointCollection : List<TickerDataPoint>
+    public class TickerDataPointCollection : DataPointCollection<TickerDataPoint>
     {
     }
 }

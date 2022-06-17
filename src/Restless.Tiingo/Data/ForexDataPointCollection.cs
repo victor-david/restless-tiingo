@@ -5,7 +5,7 @@ namespace Restless.Tiingo.Data
     /// <summary>
     /// Represents a collection of <see cref="ForexDataPoint"/> objects.
     /// </summary>
-    public class ForexDataPointCollection : List<ForexDataPoint>
+    public class ForexDataPointCollection : DataPointCollection<ForexDataPoint>
     {
     }
 }
