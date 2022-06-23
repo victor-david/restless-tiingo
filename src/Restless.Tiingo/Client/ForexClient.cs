@@ -29,9 +29,27 @@ namespace Restless.Tiingo.Client
         }
 
         /// <summary>
+        /// Gets a collection of forex top data points for the specified symbols
+        /// </summary>
+        /// <param name="parms">The operation parameters</param>
+        /// <returns>A <see cref="ForexTopDataPointCollection"/></returns>
+        public async Task<ForexTopDataPointCollection> GetLatestTopOfBookAsync(ForexParameters parms)
+        {
+            ValidateParms(parms);
+
+            UrlBuilder builder =
+                UrlBuilder.Create($"{Values.ApiRoot}/fx/{parms.Ticker}/top")
+                .AddFormat(Values.JsonFormat);
+
+            string json = await GetRawJsonAsync(builder.Url);
+
+            return JsonSerializer.Deserialize<ForexTopDataPointCollection>(json);
+        }
+
+        /// <summary>
         /// Gets a collection of forex data points for the specified symbols
         /// </summary>
-        /// <param name="parms">The operation options</param>
+        /// <param name="parms">The operation parameters</param>
         /// <returns>A <see cref="ForexDataPointCollection"/></returns>
         public async Task<ForexDataPointCollection> GetDataPointsAsync(ForexParameters parms)
         {
