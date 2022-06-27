@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Restless.Tiingo.Socket.Core;
+using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -10,16 +11,17 @@ namespace Restless.Tiingo.Socket.Data
     /// <remarks>
     /// Data arrives in a json array that varies in length
     /// depending upon the service code and the data message type.
-    /// This class obtains the json deserialization, and other classes
+    /// This class obtains the json deserialization - and other classes
     /// (which are surfaced to the caller) use this class to obtain
     /// their property values from the documented indices where the data resides.
+    /// See <see cref="DataIndex"/> for index values
     /// </remarks>
     public class RawDataMessage : SocketMessage
     {
         [JsonPropertyName("data")]
         public object[] Data { get; set; }
 
-        internal string UpdateMessageType => GetStringAt(0);
+        internal string UpdateMessageType => GetStringAt(DataIndex.Common.UpdateMessageType);
 
         /// <summary>
         /// Validates that <see cref="Data"/> is present
