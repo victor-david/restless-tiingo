@@ -34,5 +34,10 @@ namespace Restless.Tiingo.Socket.Data
             };
 
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()} {Exchange}";
+        }
     }
 }
