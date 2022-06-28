@@ -8,6 +8,9 @@ namespace Restless.Tiingo.Core
     /// </summary>
     public class ForexParameters : FrequencyParameters, IValidator
     {
+        /// <summary>
+        /// Gets or sets a single ticker pair to filter results
+        /// </summary>
         public TickerPair Ticker { get; set; }
 
         public void Validate()

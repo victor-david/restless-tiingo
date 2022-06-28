@@ -3,6 +3,9 @@ using System;
 
 namespace Restless.Tiingo.Core
 {
+    /// <summary>
+    /// Represents parameters used when searching for supported symbols
+    /// </summary>
     public class SearchParameters : IValidator
     {
         private int limit;

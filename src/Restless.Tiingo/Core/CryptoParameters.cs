@@ -8,6 +8,9 @@ namespace Restless.Tiingo.Core
     /// </summary>
     public class CryptoParameters : FrequencyParameters, IValidator
     {
+        /// <summary>
+        /// Gets or sets an array of ticker pairs to filter results
+        /// </summary>
         public TickerPair[] Tickers { get; set; }
 
         #region IValidator

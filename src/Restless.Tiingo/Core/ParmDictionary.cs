@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace Restless.Tiingo.Core
 {
+    /// <summary>
+    /// Internal class used in building parms for the url
+    /// </summary>
     internal class ParmDictionary : Dictionary<string, string>
     {
         /// <summary>
