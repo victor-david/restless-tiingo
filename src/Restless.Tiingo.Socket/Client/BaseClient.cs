@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace Restless.Tiingo.Socket.Client
 {
+    /// <summary>
+    /// Represents the base client for all socket handlers
+    /// </summary>
+    /// <remarks>
+    /// This class handles the underlying socket operations
+    /// for the various user-surfaced clients (forex, crypto, and IEX)
+    /// </remarks>
     public abstract class BaseClient : IDisposable
     {
         private const string ConnectionRoot = "wss://api.tiingo.com";
