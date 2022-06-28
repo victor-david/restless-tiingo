@@ -54,7 +54,7 @@ namespace Restless.Tiingo.Socket.Data
         internal double GetNumericAt(int index)
         {
             JsonElement? element = JsonElementAt(index);
-            return element.HasValue && element.Value.TryGetDouble(out double result) ? result : 0;
+            return element.HasValue && element.Value.ValueKind == JsonValueKind.Number && element.Value.TryGetDouble(out double result) ? result : 0;
         }
 
         private JsonElement? JsonElementAt(int index)
