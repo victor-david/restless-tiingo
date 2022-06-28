@@ -8,19 +8,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.SocketDataMessage">
-    <Position X="3.25" Y="0.5" Width="2" />
+    <Position X="3.5" Y="0.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAQAAAAAAAGAAACAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
       <FileName>Data\SocketDataMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.CryptoTradeMessage">
-    <Position X="9.25" Y="0.5" Width="2" />
-    <Members>
-      <Field Name="MinDataLength" Hidden="true" />
-    </Members>
+    <Position X="3.5" Y="6.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAAAAAAAIAEAAAAAAAAAAAAAEAAAAAQAAAAAIA=</HashCode>
+      <HashCode>AAAAAgAAAAAAAAAEAAAAAAAAAAAAAEAAAAAQAAAAAIA=</HashCode>
       <FileName>Data\CryptoTradeMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -42,58 +39,65 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.SocketDataQuoteMessage">
-    <Position X="4.25" Y="4" Width="2.25" />
+    <Position X="5.75" Y="4" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BCQAAAAAABgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\SocketDataQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.CryptoQuoteMessage">
-    <Position X="4.5" Y="7" Width="1.75" />
-    <Members>
-      <Field Name="MinDataLength" Hidden="true" />
-    </Members>
+    <Position X="8.5" Y="5.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAA=</HashCode>
       <FileName>Data\CryptoQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.ForexQuoteMessage">
-    <Position X="7" Y="4" Width="1.75" />
-    <Members>
-      <Field Name="MinDataLength" Hidden="true" />
-    </Members>
+    <Position X="8.5" Y="4" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\ForexQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Restless.Tiingo.Socket.Data.HeartBeatMessage" Collapsed="true">
-    <Position X="0.5" Y="4.25" Width="1.5" />
+  <Class Name="Restless.Tiingo.Socket.Data.HeartBeatMessage">
+    <Position X="0.5" Y="4.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\HeartBeatMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.RawDataMessage" Collapsed="true">
-    <Position X="2.25" Y="4.25" Width="1.5" />
+    <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAIAgAAAAAEAAEAABAAAAABQAAAAAA=</HashCode>
       <FileName>Data\RawDataMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.SocketClosedMessage" Collapsed="true">
-    <Position X="0.5" Y="5.25" Width="1.75" />
+    <Position X="2.5" Y="5.25" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Data\SocketClosedMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.IEXQuoteMessage">
-    <Position X="7" Y="5.75" Width="1.75" />
+    <Position X="5.75" Y="7" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\IEXQuoteMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restless.Tiingo.Socket.Data.SubscriptionMessage">
+    <Position X="0.5" Y="6.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\SubscriptionMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

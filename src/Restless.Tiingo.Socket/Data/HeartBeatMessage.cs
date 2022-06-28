@@ -4,12 +4,9 @@ namespace Restless.Tiingo.Socket.Data
 {
     /// <summary>
     /// Represents a heart beat message which is sent by the server
-    /// at certain intervals when there isn't any data to send. 
+    /// at regular intervals. Observation shows every two minutes. 
     /// </summary>
     /// <remarks>
-    /// A caller can request that this message is surfaced in order 
-    /// to keep track of inactivity.
-    /// 
     /// {"messageType": "H", "response": {"message": "HeartBeat", "code": 200}}
     /// </remarks>
     public class HeartBeatMessage : SocketMessage
