@@ -142,3 +142,7 @@ using (TiingoClient client = TiingoClient.Create("apitoken"))
     });
 }
 ~~~
+
+## Questions
+If you have any questions or see something that isn't right, feel free to open an issue.
+Although the majority of the pieces are working, this is still currently a work in progress
