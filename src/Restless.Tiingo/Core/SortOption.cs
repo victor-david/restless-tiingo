@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Restless.Tiingo.Core
+namespace Restless.Tiingo.Rest.Core
 {
     /// <summary>
     /// Provides sort options

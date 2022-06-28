@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Restless.Tiingo.Data
+namespace Restless.Tiingo.Rest.Data
 {
     /// <summary>
     /// Represents a collection of <see cref="ForexTopDataPoint"/> objects.

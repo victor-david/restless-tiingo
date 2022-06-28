@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Restless.Tiingo.Core
+namespace Restless.Tiingo.Rest.Core
 {
     /// <summary>
     /// Represents the base class for api parameters

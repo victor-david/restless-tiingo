@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace Restless.Tiingo.Client
+namespace Restless.Tiingo.Rest.Client
 {
     public class TiingoClient : IDisposable
     {

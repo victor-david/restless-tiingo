@@ -1,13 +1,13 @@
 ﻿using CsvHelper;
-using Restless.Tiingo.Core;
-using Restless.Tiingo.Data;
+using Restless.Tiingo.Rest.Core;
+using Restless.Tiingo.Rest.Data;
 using System;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Threading.Tasks;
 
-namespace Restless.Tiingo.Client
+namespace Restless.Tiingo.Rest.Client
 {
     /// <summary>
     /// Represents a client for obtaining ticker data via the supported tickers zip file

@@ -1,10 +1,9 @@
-﻿using Restless.Tiingo.Core;
-using Restless.Tiingo.Data;
-using System;
+﻿using Restless.Tiingo.Rest.Core;
+using Restless.Tiingo.Rest.Data;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Restless.Tiingo.Client
+namespace Restless.Tiingo.Rest.Client
 {
     /// <summary>
     /// Represents a client for obtaining ticker information (meta data, prices)

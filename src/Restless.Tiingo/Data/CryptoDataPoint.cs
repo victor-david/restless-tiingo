@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Restless.Tiingo.Data
+namespace Restless.Tiingo.Rest.Data
 {
     public class CryptoDataPoint : DataPoint
     {

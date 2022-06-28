@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace Restless.Tiingo.Data
+namespace Restless.Tiingo.Rest.Data
 {
     /// <summary>
     /// Represents meta data for a single ticker

@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Restless.Tiingo.Client
+namespace Restless.Tiingo.Rest.Client
 {
     public class DefaultHttpClientWrapper : IHttpClientWrapper
     {

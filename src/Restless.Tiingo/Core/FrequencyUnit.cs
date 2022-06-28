@@ -1,4 +1,4 @@
-﻿namespace Restless.Tiingo.Core
+﻿namespace Restless.Tiingo.Rest.Core
 {
     /// <summary>
     /// Provide frequency units for api calls that use them

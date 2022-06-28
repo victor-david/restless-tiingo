@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Restless.Tiingo.Core
+namespace Restless.Tiingo.Rest.Core
 {
     /// <summary>
     /// Extends <see cref="ApiParameters"/> for parameters that handle frequency intervals

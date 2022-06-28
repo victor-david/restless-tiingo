@@ -4,9 +4,9 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <OutputType>Library</OutputType>
     <PackageId>Restless.Tiingo</PackageId>
-    <AssemblyName>Restless.Tiingo</AssemblyName>
-    <RootNamespace>Restless.Tiingo</RootNamespace>
-    <Description>Provides access to the Tiiango financial api</Description>
+    <AssemblyName>Restless.Tiingo.Rest</AssemblyName>
+    <RootNamespace>Restless.Tiingo.Rest</RootNamespace>
+    <Description>Provides REST access to the Tiiango financial api</Description>
     <PackageProjectUrl>https://github.com/victor-david/restless-tiiango</PackageProjectUrl>
     <RepositoryUrl>https://github.com/victor-david/restless-tiiango</RepositoryUrl>
     <Authors>Restless Animal Development</Authors>

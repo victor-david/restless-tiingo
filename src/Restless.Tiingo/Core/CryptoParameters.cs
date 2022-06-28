@@ -1,7 +1,7 @@
-﻿using Restless.Tiingo.Data;
+﻿using Restless.Tiingo.Rest.Data;
 using System;
 
-namespace Restless.Tiingo.Core
+namespace Restless.Tiingo.Rest.Core
 {
     /// <summary>
     /// Represents parameters used in a crypto operation

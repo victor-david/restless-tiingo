@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Restless.Tiingo.Data
+namespace Restless.Tiingo.Rest.Data
 {
     /// <summary>
     /// Represents a pair of ticker symbols

@@ -1,4 +1,4 @@
-﻿namespace Restless.Tiingo.Core
+﻿namespace Restless.Tiingo.Rest.Core
 {
     /// <summary>
     /// Represents parameters used in a ticker operation

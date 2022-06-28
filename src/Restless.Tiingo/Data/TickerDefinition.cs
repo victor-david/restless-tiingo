@@ -1,8 +1,8 @@
 ﻿using CsvHelper.Configuration.Attributes;
-using Restless.Tiingo.Core;
+using Restless.Tiingo.Rest.Core;
 using System;
 
-namespace Restless.Tiingo.Data
+namespace Restless.Tiingo.Rest.Data
 {
     public class TickerDefinition
     {
