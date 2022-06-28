@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace Restless.Tiingo.Client
 {
+    /// <summary>
+    /// Provides the default http client wrapper
+    /// </summary>
     public class DefaultHttpClientWrapper : IHttpClientWrapper
     {
         private readonly HttpClient client;
