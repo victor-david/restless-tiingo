@@ -8,7 +8,7 @@ namespace Restless.Tiingo.Client
     /// <summary>
     /// Represents a client for obtaining information from the news feed
     /// </summary>
-    public class NewsClient : AuxiliaryClient
+    public class NewsClient : BaseClient
     {
         internal NewsClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
         {

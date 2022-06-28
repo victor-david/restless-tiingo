@@ -17,7 +17,7 @@ namespace Restless.Tiingo.Client
     /// Another alternative for obtaining information about supported tickers is via the search api
     /// which can be accessed using the <see cref="SearchClient"/>.
     /// </remarks>
-    public class TickerDataClient : AuxiliaryClient
+    public class TickerDataClient : BaseClient
     {
         private const string TickerZipUrl = "https://apimedia.tiingo.com/docs/tiingo/daily/supported_tickers.zip";
         private const string TickerTempFile = "TICKERS-DB6E92E3-59AC-40DD-8A06-279950AC7CB9";

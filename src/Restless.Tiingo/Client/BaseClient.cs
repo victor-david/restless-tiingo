@@ -12,7 +12,7 @@ namespace Restless.Tiingo.Client
     /// <summary>
     /// Represents the base class for auxiliary clients such as stocks and forex
     /// </summary>
-    public abstract class AuxiliaryClient
+    public abstract class BaseClient
     {
         private readonly string apiToken;
 
@@ -21,7 +21,7 @@ namespace Restless.Tiingo.Client
             get;
         }
 
-        protected AuxiliaryClient(IHttpClientWrapper client, string apiToken)
+        protected BaseClient(IHttpClientWrapper client, string apiToken)
         {
             Client = client ?? throw new ArgumentNullException(nameof(client));
             this.apiToken = apiToken;

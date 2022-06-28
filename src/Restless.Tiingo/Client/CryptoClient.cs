@@ -8,7 +8,7 @@ namespace Restless.Tiingo.Client
     /// <summary>
     /// Represents a client for obtaining crypto information
     /// </summary>
-    public class CryptoClient : AuxiliaryClient
+    public class CryptoClient : BaseClient
     {
         internal CryptoClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
         {

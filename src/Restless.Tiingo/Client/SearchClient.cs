@@ -8,7 +8,7 @@ namespace Restless.Tiingo.Client
     /// <summary>
     /// Represents a client for obtaing search results
     /// </summary>
-    public class SearchClient : AuxiliaryClient
+    public class SearchClient : BaseClient
     {
         internal SearchClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
         {

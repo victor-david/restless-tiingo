@@ -9,7 +9,7 @@ namespace Restless.Tiingo.Client
     /// <summary>
     /// Represents a client for obtaining ticker information (meta data, prices)
     /// </summary>
-    public class TickerClient : AuxiliaryClient
+    public class TickerClient : BaseClient
     {
         internal TickerClient(IHttpClientWrapper client, string apiToken)  :base(client, apiToken)
         {

@@ -110,10 +110,5 @@ namespace Restless.Tiingo.Socket.Client
             socket = new ClientWebSocket();
             return true;
         }
-
-        //private void ShowSocketState([CallerMemberName] string caller = null)
-        //{
-        //    Debug.WriteLine($"Caller:{caller} state:{socket.State}");
-        //}
     }
 }
