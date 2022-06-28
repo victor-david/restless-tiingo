@@ -1,7 +1,6 @@
 ﻿using Restless.Tiingo.Socket.Core;
 using Restless.Tiingo.Socket.Data;
 using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Restless.Tiingo.Socket.Client
@@ -21,7 +20,6 @@ namespace Restless.Tiingo.Socket.Client
                 await SubscribeAsync(EventData.FromParms(parms)).ConfigureAwait(false);
                 await ReceiveDataAsync(json =>
                 {
-                    Debug.WriteLine(json);
                     SocketMessage socketMessage = SocketMessage.Create(json);
                     if (socketMessage.IsMessageTypeIncluded(parms.MessageType))
                     {
