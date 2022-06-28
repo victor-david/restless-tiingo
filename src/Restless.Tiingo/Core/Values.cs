@@ -1,4 +1,4 @@
-﻿namespace Restless.Tiingo.Rest.Core
+﻿namespace Restless.Tiingo.Core
 {
     internal static class Values
     {

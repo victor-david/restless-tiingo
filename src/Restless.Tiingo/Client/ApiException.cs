@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Restless.Tiingo.Rest.Client
+namespace Restless.Tiingo.Client
 {
     public class ApiException : Exception
     {

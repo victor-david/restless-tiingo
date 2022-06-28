@@ -1,7 +1,7 @@
-﻿using Restless.Tiingo.Rest.Data;
+﻿using Restless.Tiingo.Data;
 using System;
 
-namespace Restless.Tiingo.Rest.Core
+namespace Restless.Tiingo.Core
 {
     public class SearchParameters : IValidator
     {

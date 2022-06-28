@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Restless.Tiingo.Rest.Core
+namespace Restless.Tiingo.Core
 {
     internal class ParmDictionary : Dictionary<string, string>
     {

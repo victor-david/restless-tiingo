@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Restless.Tiingo.Rest.Client
+namespace Restless.Tiingo.Client
 {
     public interface IHttpClientWrapper : IDisposable
     {

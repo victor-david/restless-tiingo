@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Restless.Tiingo.Rest.Core
+namespace Restless.Tiingo.Core
 {
     internal class UrlBuilder
     {

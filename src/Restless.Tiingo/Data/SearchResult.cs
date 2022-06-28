@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Restless.Tiingo.Rest.Data
+namespace Restless.Tiingo.Data
 {
     /// <summary>
     /// Represents a single search result

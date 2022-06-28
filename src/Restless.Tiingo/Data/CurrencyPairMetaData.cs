@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Restless.Tiingo.Rest.Data
+namespace Restless.Tiingo.Data
 {
     /// <summary>
     /// Represents common data for an operation that obtains supported currency pairs (forex, crypto)

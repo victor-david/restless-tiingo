@@ -1,4 +1,4 @@
-﻿namespace Restless.Tiingo.Rest.Data
+﻿namespace Restless.Tiingo.Data
 {
     public class CryptoMetaData : CurrencyPairMetaData
     {

@@ -1,5 +1,5 @@
-﻿using Restless.Tiingo.Rest.Core;
-using Restless.Tiingo.Rest.Data;
+﻿using Restless.Tiingo.Core;
+using Restless.Tiingo.Data;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Restless.Tiingo.Rest.Client
+namespace Restless.Tiingo.Client
 {
     /// <summary>
     /// Represents the base class for auxiliary clients such as stocks and forex
