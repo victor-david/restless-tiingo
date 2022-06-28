@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restless.Tiingo.Rest", "Restless.Tiingo.Rest\Restless.Tiingo.Rest.csproj", "{95654117-68B0-4DC0-9AB9-E60DC3445706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restless.Tiingo", "Restless.Tiingo\Restless.Tiingo.csproj", "{95654117-68B0-4DC0-9AB9-E60DC3445706}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restless.Tiingo.Socket", "Restless.Tiingo.Socket\Restless.Tiingo.Socket.csproj", "{FEF17EA7-68E3-4F90-A2AC-CA8572C5B3E5}"
 EndProject
