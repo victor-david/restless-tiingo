@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Restless.Tiingo.Socket.Data.SocketMessage">
-    <Position X="0.5" Y="0.5" Width="2.25" />
+    <Position X="0.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>ABAEAAAAAAAEAAAEIAAAAIAAAAAQBEAAAAACAAAAAAA=</HashCode>
       <FileName>Data\SocketMessage.cs</FileName>
@@ -15,89 +15,141 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.CryptoTradeMessage">
-    <Position X="3.5" Y="6.25" Width="2" />
+    <Position X="4" Y="6.25" Width="2" />
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketDataMessage" FixedFromPoint="true">
+      <Path>
+        <Point X="5" Y="2.954" />
+        <Point X="5" Y="6.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAAEAAAAAAAAAAAAAEAAAAAQAAAAAIA=</HashCode>
       <FileName>Data\CryptoTradeMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.IEXBreakMessage">
-    <Position X="6.5" Y="0.5" Width="2.5" />
+    <Position X="6" Y="0.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\IEXBreakMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.IEXTradeMessage">
-    <Position X="6.5" Y="2" Width="2.5" />
-    <Members>
-      <Field Name="MinDataLength" Hidden="true" />
-    </Members>
+    <Position X="9" Y="0.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAgAAAAAAAAAAAAEAAAAAEAAAAEAAAAAAEEAAAIA=</HashCode>
       <FileName>Data\IEXTradeMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.SocketDataQuoteMessage">
-    <Position X="5.75" Y="4" Width="2.25" />
+    <Position X="6.25" Y="4" Width="2.25" />
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketDataMessage" FixedFromPoint="true">
+      <Path>
+        <Point X="5.312" Y="2.954" />
+        <Point X="5.312" Y="3.625" />
+        <Point X="7.375" Y="3.625" />
+        <Point X="7.375" Y="4" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>BCQAAAAAABgAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\SocketDataQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.CryptoQuoteMessage">
-    <Position X="8.5" Y="5.5" Width="2.25" />
+    <Position X="9" Y="5.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAEAAAAAQAAAAAAA=</HashCode>
       <FileName>Data\CryptoQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.ForexQuoteMessage">
-    <Position X="8.5" Y="4" Width="1.75" />
+    <Position X="9" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\ForexQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Restless.Tiingo.Socket.Data.HeartBeatMessage">
-    <Position X="0.5" Y="4.25" Width="1.75" />
-    <Compartments>
-      <Compartment Name="Methods" Collapsed="true" />
-    </Compartments>
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Data\HeartBeatMessage.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Restless.Tiingo.Socket.Data.RawDataMessage" Collapsed="true">
-    <Position X="2.5" Y="4.25" Width="1.5" />
+    <Position X="2.75" Y="4.25" Width="1.75" />
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketMessage" FixedFromPoint="true">
+      <Path>
+        <Point X="2.688" Y="3.853" />
+        <Point X="2.688" Y="4.058" />
+        <Point X="3.625" Y="4.058" />
+        <Point X="3.625" Y="4.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAEAAAAAAAAAAIAgAAAAAEAAEAABAAAAABQAAAAAA=</HashCode>
       <FileName>Data\RawDataMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.SocketClosedMessage" Collapsed="true">
-    <Position X="2.5" Y="5.25" Width="1.75" />
+    <Position X="2.75" Y="5.25" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketMessage" FixedFromPoint="true">
+      <Path>
+        <Point X="2.438" Y="3.853" />
+        <Point X="2.438" Y="5.096" />
+        <Point X="3.625" Y="5.096" />
+        <Point X="3.625" Y="5.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
       <FileName>Data\SocketClosedMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.IEXQuoteMessage">
-    <Position X="5.75" Y="7" Width="2.25" />
+    <Position X="6.25" Y="7" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>BAACAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAA=</HashCode>
       <FileName>Data\IEXQuoteMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Restless.Tiingo.Socket.Data.SubscriptionMessage">
-    <Position X="0.5" Y="6.25" Width="1.75" />
+    <Position X="1.75" Y="6.25" Width="1.75" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketResponseMessage" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="1.938" Y="5.934" />
+        <Point X="1.938" Y="6.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>Data\SubscriptionMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restless.Tiingo.Socket.Data.SocketResponseMessage">
+    <Position X="0.5" Y="4.25" Width="1.75" />
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketMessage" FixedFromPoint="true">
+      <Path>
+        <Point X="1.375" Y="3.853" />
+        <Point X="1.375" Y="4.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\SocketResponseMessage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Restless.Tiingo.Socket.Data.HeartBeatMessage" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <InheritanceLine Type="Restless.Tiingo.Socket.Data.SocketResponseMessage" FixedFromPoint="true">
+      <Path>
+        <Point X="1.25" Y="5.934" />
+        <Point X="1.25" Y="8" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\HeartBeatMessage.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

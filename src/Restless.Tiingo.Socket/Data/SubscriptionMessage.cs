@@ -6,7 +6,7 @@ namespace Restless.Tiingo.Socket.Data
     /// Represents a subscription message. A caller can request
     /// that this message is surfaced in order to capture the subscription id.
     /// </summary>
-    public class SubscriptionMessage : HeartBeatMessage
+    public class SubscriptionMessage : SocketResponseMessage
     {
         [JsonPropertyName("data")]
         public SubscriptionData Data { get; set; }
@@ -14,17 +14,6 @@ namespace Restless.Tiingo.Socket.Data
         public override string ToString()
         {
             return $"{base.ToString()} {Data}";
-        }
-    }
-
-    public class SubscriptionData
-    {
-        [JsonPropertyName("subscriptionId")]
-        public int SubscriptionId { get; set; }
-
-        public override string ToString()
-        {
-            return $"Sub id: {SubscriptionId}";
         }
     }
 }

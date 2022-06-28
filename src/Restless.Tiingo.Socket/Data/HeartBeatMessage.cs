@@ -1,6 +1,4 @@
-﻿using System.Text.Json.Serialization;
-
-namespace Restless.Tiingo.Socket.Data
+﻿namespace Restless.Tiingo.Socket.Data
 {
     /// <summary>
     /// Represents a heart beat message which is sent by the server
@@ -9,14 +7,7 @@ namespace Restless.Tiingo.Socket.Data
     /// <remarks>
     /// {"messageType": "H", "response": {"message": "HeartBeat", "code": 200}}
     /// </remarks>
-    public class HeartBeatMessage : SocketMessage
+    public class HeartBeatMessage : SocketResponseMessage
     {
-        [JsonPropertyName("response")]
-        public ResponseData Response { get; set; }
-
-        public override string ToString()
-        {
-            return $"{base.ToString()} {Response}";
-        }
     }
 }
