@@ -265,36 +265,34 @@
              */
             #endregion
 
-            internal static class All
+            private static class All
             {
-                public const int AfterHours = 12;   // all types
-                public const int AskPrice = 7;      // quote only
-                public const int AskSize = 8;       // quote only
-                public const int BidPrice = 5;      // quote only
-                public const int BidSize = 4;       // quote only
-                public const int Halted = 11;       // all types
-                public const int Intermarket = 13;  // all types
-                public const int LastPrice = 9;     // break, trade
-                public const int LastSize = 10;     // break, trade
-                public const int MidPrice = 6;      // quote only
-                public const int Nanoseconds = 2;   // all types
-                public const int NmsRule611 = 15;   // trade only
-                public const int OddLot = 14;       // trade only
-                public const int Ticker = 3;        // all types
-                public const int Timestamp = 1;     // all types
+                public const int AfterHours = 12;   // quote/trade
+                public const int AskPrice = 7;      // quote
+                public const int AskSize = 8;       // quote
+                public const int BidPrice = 5;      // quote
+                public const int BidSize = 4;       // quote
+                public const int Halted = 11;       // quote
+                public const int Intermarket = 13;  // trade
+                public const int LastPrice = 9;     // trade/break
+                public const int LastSize = 10;     // trade/break
+                public const int MidPrice = 6;      // quote
+                public const int Nanoseconds = 2;   // quote/trade/break
+                public const int NmsRule611 = 15;   // trade
+                public const int OddLot = 14;       // trade
+                public const int Ticker = 3;        // quote/trade/break
+                public const int Timestamp = 1;     // quote/trade/break
                 public const int UpdateMessageType = Common.UpdateMessageType;
-            }
-
-            internal static class Break
-            {
             }
 
             internal static class Quote
             {
+                public const int AfterHours = All.AfterHours;
                 public const int AskPrice = All.AskPrice;
                 public const int AskSize = All.AskSize;
                 public const int BidPrice = All.BidPrice;
                 public const int BidSize = All.BidSize;
+                public const int Halted = All.Halted;
                 public const int MidPrice = All.MidPrice;
                 public const int Nanoseconds = All.Nanoseconds;
                 public const int Ticker = All.Ticker;
@@ -303,8 +301,21 @@
 
             internal static class Trade
             {
-
+                public const int AfterHours = All.AfterHours;
+                public const int Intermarket = All.Intermarket;
+                public const int LastPrice = All.LastPrice;
+                public const int LastSize = All.LastSize;
+                public const int Nanoseconds = All.Nanoseconds;
+                public const int NmsRule611 = All.NmsRule611;
+                public const int OddLot = All.OddLot;
+                public const int Ticker = All.Ticker;
+                public const int Timestamp = All.Timestamp;
             }
+
+            internal static class Break
+            {
+            }
+
         }
         #endregion
     }
