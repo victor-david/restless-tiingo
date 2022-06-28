@@ -1,15 +1,23 @@
 # Restless Tiingo
 
 **Restless Tiingo** is a .Net library that enables you to access financial data from the Tiingo service.
-The following services are supported:
+You can access the data via the REST api or via web sockets.
 
-- Ticker - Provides ticker meta data and prices
-- News - Provides access to the Tiingo news feed
-- Search - Enables you to query the Tiingo service to obtain supported symbols, etc.
-- Crypto - Provides access to crypto prices and meta data
+## Assemblies
+- Restless.Tiingo - Provides access to REST services
+  - Ticker meta data and prices
+  - Forex bids and prices
+  - Crypto meta data and prices
+  - Tiingo news feed
+  - Search lets you query the Tiingo service to obtain supported symbols, etc.
+   
+- Restless.Tiingo.Socket - Provides access to web socket services
+  - Forex quotes
+  - Crypto quotes and trades
+  - IEX quotes and trades
 
-## Usage examples
 
+## Usage examples (REST)
 
 ~~~c#
 using Restless.Tiingo.Client;
@@ -74,3 +82,63 @@ Note: In a production app, the client should not be so short lived. Normally, it
 at application startup and dispose of during application shut down. This article has more info:
 
 https://docs.microsoft.com/en-us/dotnet/fundamentals/networking/httpclient-guidelines
+
+## Usage examples (socket)
+~~~c#
+using Restless.Tiingo.Socket.Client;
+using Restless.Tiingo.Socket.Core;
+using Restless.Tiingo.Socket.Data;
+using System.Diagnostics;
+~~~
+
+### Forex
+~~~c#
+using (TiingoClient client = TiingoClient.Create("apitoken"))
+{
+    await client.Forex.GetAsync(new ForexParameters()
+    {
+        // this is the default
+        MessageType = MessageType.All,
+        // this is the default
+        Threshold = ForexThreshold.LastQuote,
+        // receive only specified tickers. Default is all tickers
+        Tickers = new string[] { "usdmxn" }
+    }, result =>
+    {
+        if (result is SubscriptionMessage sub)
+        {
+            // save subscription id
+        }
+        if (result is ForexQuoteMessage quote)
+        {
+            Debug.WriteLine($"{quote.Timestamp} {quote.BidPrice} {quote.MidPrice}");
+        }
+
+        if (result is SocketClosedMessage)
+        {
+            Debug.WriteLine("Closed the socket. Good bye");
+        }
+    });
+}
+~~~
+
+### Crypto
+
+~~~c#
+using (TiingoClient client = TiingoClient.Create("apitoken"))
+{
+    await client.Crypto.GetAsync(new CryptoParameters()
+    {
+        // Only surface data update messages (no subscription message, etc.)
+        MessageType = MessageType.DataUpdate,
+        Threshold = CryptoThreshold.OnlyLastTrade,
+        Tickers = new string[] {"btcusd"}
+    }, result =>
+    {
+        if (result is CryptoTradeMessage trade)
+        {
+            Debug.WriteLine($"{trade.Exchange} {trade.Timestamp} {trade.LastPrice}");
+        }
+    });
+}
+~~~
