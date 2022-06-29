@@ -9,13 +9,16 @@ namespace Restless.Tiingo.Core
     public class ForexParameters : FrequencyParameters, IValidator
     {
         /// <summary>
-        /// Gets or sets a single ticker pair to filter results
+        /// Gets or sets an array of ticker pairs to filter results
         /// </summary>
-        public TickerPair Ticker { get; set; }
+        public TickerPair[] Tickers { get; set; }
 
         public void Validate()
         {
-            _ = Ticker ?? throw new ArgumentNullException(nameof(Ticker));
+            if ((Tickers?.Length ?? 0) == 0)
+            {
+                throw new ArgumentException("Tickers must contain at least one entry");
+            }
         }
     }
 }

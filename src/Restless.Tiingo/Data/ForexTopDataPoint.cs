@@ -1,29 +1,33 @@
-﻿using System;
+﻿using Restless.Tiingo.Core;
+using System;
 using System.Text.Json.Serialization;
 
 namespace Restless.Tiingo.Data
 {
+    /// <summary>
+    /// Represents
+    /// </summary>
     public class ForexTopDataPoint
     {
-        [JsonPropertyName("askPrice")]
-        public decimal AskPrice { get; set; }
+        [JsonPropertyName(JsonId.AskPrice)]
+        public double AskPrice { get; set; }
 
-        [JsonPropertyName("askSize")]
-        public decimal AskSize { get; set; }
+        [JsonPropertyName(JsonId.AskSize)]
+        public double AskSize { get; set; }
 
-        [JsonPropertyName("bidPrice")]
-        public decimal BidPrice { get; set; }
+        [JsonPropertyName(JsonId.BidPrice)]
+        public double BidPrice { get; set; }
 
-        [JsonPropertyName("bidSize")]
-        public decimal BidSize { get; set; }
+        [JsonPropertyName(JsonId.BidSize)]
+        public double BidSize { get; set; }
 
-        [JsonPropertyName("midPrice")]
-        public decimal MidPrice { get; set; }
+        [JsonPropertyName(JsonId.MidPrice)]
+        public double MidPrice { get; set; }
 
-        [JsonPropertyName("ticker")]
+        [JsonPropertyName(JsonId.Ticker)]
         public string Ticker { get; set; }
 
-        [JsonPropertyName("quoteTimestamp")]
+        [JsonPropertyName(JsonId.QuoteTimestamp)]
         public DateTime Timestamp { get; set; }
     }
 }

@@ -25,5 +25,10 @@
         /// Gets or sets an array of tickers used to filter news results.
         /// </summary>
         public string[] Tickers { get; set; }
+
+        public NewsParameters()
+        {
+            Limit = 100;
+        }
     }
 }

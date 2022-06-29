@@ -13,7 +13,6 @@ namespace Restless.Tiingo.Core
         /// </summary>
         public TickerPair[] Tickers { get; set; }
 
-        #region IValidator
         public void Validate()
         {
             if ((Tickers?.Length ?? 0) == 0)
@@ -21,7 +20,6 @@ namespace Restless.Tiingo.Core
                 throw new ArgumentException("Tickers must contain at least one entry");
             }
         }
-        #endregion
 
         /// <inheritdoc/>
         protected internal override string GetFrequencyParameter()

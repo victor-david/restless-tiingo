@@ -80,9 +80,13 @@ namespace Restless.Tiingo.Core
         #region Private methods
         private string ArrayToParm(object[] values)
         {
-            StringBuilder builder = new();
-            builder.AppendJoin(",", values);
-            return builder.ToString();
+            if (values != null)
+            {
+                StringBuilder builder = new();
+                builder.AppendJoin(",", values);
+                return builder.ToString();
+            }
+            return null;
         }
         #endregion
     }

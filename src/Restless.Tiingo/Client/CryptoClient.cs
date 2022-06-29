@@ -15,20 +15,25 @@ namespace Restless.Tiingo.Client
         }
 
         /// <summary>
-        /// Gets a collection of crypto meta data for all supported crypto pairs
+        /// Gets a collection of supported crypto symbol pairs
         /// </summary>
-        /// <returns>A <see cref="CryptoMetaDataCollection"/></returns>
-        public async Task<CryptoMetaDataCollection> GetSupportedMetaDataAsync()
+        /// <returns>A <see cref="CryptoSymbolPairCollection"/></returns>
+        public async Task<CryptoSymbolPairCollection> GetSupportedSymbolPairsAsync()
         {
             UrlBuilder builder =
                 UrlBuilder.Create($"{Values.ApiRoot}/crypto")
                 .AddFormat(Values.JsonFormat);
 
             string json = await GetRawJsonAsync(builder.Url);
-            return JsonSerializer.Deserialize<CryptoMetaDataCollection>(json);
+            return JsonSerializer.Deserialize<CryptoSymbolPairCollection>(json);
         }
 
-        public async Task GetTopOfBookAsync(CryptoParameters parms)
+        /// <summary>
+        /// Gets a collection of <see cref="CryptoTopData"/> objects
+        /// </summary>
+        /// <param name="parms"></param>
+        /// <returns>A <see cref="CryptoTopDataCollection"/></returns>
+        public async Task<CryptoTopDataCollection> GetTopOfBookAsync(CryptoParameters parms)
         {
             ValidateParms(parms);
 
@@ -38,6 +43,7 @@ namespace Restless.Tiingo.Client
                 .AddArray(Values.TickersParm, parms.Tickers);
 
             string json = await GetRawJsonAsync(builder.Url);
+            return JsonSerializer.Deserialize<CryptoTopDataCollection>(json);
         }
 
         /// <summary>

@@ -1,28 +1,24 @@
 ﻿using Restless.Tiingo.Core;
-using System;
 using System.Text.Json.Serialization;
 
 namespace Restless.Tiingo.Data
 {
     /// <summary>
-    /// Represents meta data for a single ticker
+    /// Represents a single result when querying for supported forex symbols
     /// </summary>
-    public class TickerMetaData
+    public class ForexSymbolPair
     {
+        [JsonPropertyName(JsonId.BaseCurrency)]
+        public string BaseCurrency { get; set; }
+
         [JsonPropertyName(JsonId.Description)]
         public string Description { get; set; }
-
-        [JsonPropertyName(JsonId.EndDate)]
-        public DateTime? EndDate { get; set; }
-
-        [JsonPropertyName(JsonId.ExchangeCode)]
-        public string ExchangeCode { get; set; }
 
         [JsonPropertyName(JsonId.Name)]
         public string Name { get; set; }
 
-        [JsonPropertyName(JsonId.StartDate)]
-        public DateTime? StartDate { get; set; }
+        [JsonPropertyName(JsonId.QuoteCurrency)]
+        public string QuoteCurrency { get; set; }
 
         [JsonPropertyName(JsonId.Ticker)]
         public string Ticker { get; set; }

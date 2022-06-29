@@ -1,37 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Restless.Tiingo.Core;
+using System;
 using System.Text.Json.Serialization;
 
 namespace Restless.Tiingo.Data
 {
+    /// <summary>
+    /// Represents a single news item
+    /// </summary>
     public class NewsItem
     {
-        [JsonPropertyName("id")]
+        [JsonPropertyName(JsonId.ArticleId)]
         public long ArticleId { get; set; }
 
-        [JsonPropertyName("title")]
+        [JsonPropertyName(JsonId.Title)]
         public string Title { get; set; }
 
-        [JsonPropertyName("url")]
+        [JsonPropertyName(JsonId.Url)]
         public string Url { get; set; }
 
-        [JsonPropertyName("description")]
+        [JsonPropertyName(JsonId.Description)]
         public string Description { get; set; }
 
-        [JsonPropertyName("publishedDate")]
+        [JsonPropertyName(JsonId.PublishedDate)]
         public DateTime PublishedDate { get; set; }
 
-        [JsonPropertyName("crawlDate")]
+        [JsonPropertyName(JsonId.CrawlDate)]
         public DateTime CrawlDate { get; set; }
 
-        [JsonPropertyName("source")]
+        [JsonPropertyName(JsonId.NewsSource)]
         public string NewsSource { get; set; }
 
-        [JsonPropertyName("tickers")]
+        [JsonPropertyName(JsonId.Tickers)]
         public string[] Tickers { get; set; }
 
-        [JsonPropertyName("tags")]
+        [JsonPropertyName(JsonId.Tags)]
         public string[] Tags { get; set; }
     }
 }
