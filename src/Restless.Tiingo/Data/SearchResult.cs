@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Restless.Tiingo.Core;
+using System.Text.Json.Serialization;
 
 namespace Restless.Tiingo.Data
 {
@@ -7,25 +8,25 @@ namespace Restless.Tiingo.Data
     /// </summary>
     public class SearchResult
     {
-        [JsonPropertyName("assetType")]
+        [JsonPropertyName(JsonId.AssetType)]
         public string AssetType { get; set; }
 
-        [JsonPropertyName("countryCode")]
+        [JsonPropertyName(JsonId.CountryCode)]
         public string CountryCode { get; set; }
 
-        [JsonPropertyName("isActive")]
+        [JsonPropertyName(JsonId.IsActive)]
         public bool IsActive { get; set; }
 
-        [JsonPropertyName("name")]
+        [JsonPropertyName(JsonId.Name)]
         public string Name { get; set; }
 
-        [JsonPropertyName("openFIGIComposite")]
+        [JsonPropertyName(JsonId.OpenFIGIComposite)]
         public string OpenFigiComposite { get; set; }
 
-        [JsonPropertyName("permaTicker")]
+        [JsonPropertyName(JsonId.PermaTicker)]
         public string PermaTicker { get; set; }
 
-        [JsonPropertyName("ticker")]
+        [JsonPropertyName(JsonId.Ticker)]
         public string Ticker { get; set; }
     }
 }
