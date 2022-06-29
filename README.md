@@ -64,7 +64,10 @@ forexMeta.ForEach(item =>
 // Get all available daily forex rates for USD/MXN
 ForexDataPointCollection forexData = await client.Forex.GetDataPointsAsync(new ForexParameters()
 {
-    Ticker = new TickerPair("usd", "mxn"),
+    Tickers = new TickerPair[]
+    {
+        new TickerPair("usd", "mxn"),
+    },
     StartDate = DateTime.MinValue,
     Frequency = FrequencyUnit.Day,
     FrequencyValue = 1
