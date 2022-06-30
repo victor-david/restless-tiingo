@@ -45,12 +45,12 @@ namespace Restless.Tiingo.Data
         public double Open { get; set; }
 
         [JsonPropertyName(JsonId.TradesDone)]
-        public decimal TradesDone { get; set; }
+        public double TradesDone { get; set; }
 
         [JsonPropertyName(JsonId.Volume)]
-        public decimal Volume { get; set; }
+        public double Volume { get; set; }
 
         [JsonPropertyName(JsonId.VolumeNotional)]
-        public decimal VolumeNotional { get; set; }
+        public double VolumeNotional { get; set; }
     }
 }

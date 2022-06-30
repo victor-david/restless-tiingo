@@ -31,7 +31,7 @@ namespace Restless.Tiingo.Data
         public DateTime Date { get; set; }
 
         [JsonPropertyName(JsonId.DividendCash)]
-        public decimal DivCash { get; set; }
+        public double DivCash { get; set; }
 
         [JsonPropertyName(JsonId.HighPrice)]
         public double High { get; set; }
@@ -43,7 +43,7 @@ namespace Restless.Tiingo.Data
         public double Open { get; set; }
 
         [JsonPropertyName(JsonId.SplitFactor)]
-        public decimal SplitFactor { get; set; }
+        public double SplitFactor { get; set; }
 
         [JsonPropertyName(JsonId.Volume)]
         public long Volume { get; set; }
