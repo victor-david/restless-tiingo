@@ -1,10 +1,17 @@
 ﻿namespace Restless.Tiingo.Socket.Core
 {
+    /// <summary>
+    /// Provides enumerated values for the threshold of <see cref="CryptoParameters"/>
+    /// </summary>
     public enum CryptoThreshold
     {
-        // A "thresholdLevel" of 2 means you will get Top-of-Book AND Last Trade updates.
-        // A "thresholdLevel" of 5 means you will get only Last Trade updates
+        /// <summary>
+        /// Receive top-of-book AND last trade updates.
+        /// </summary>
         TopOfBookAndLastTrade = 2,
+        /// <summary>
+        /// Receive onlt last trade updates.
+        /// </summary>
         OnlyLastTrade = 5
     }
 }

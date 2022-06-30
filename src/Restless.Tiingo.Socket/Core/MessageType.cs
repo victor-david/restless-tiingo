@@ -3,8 +3,9 @@
 namespace Restless.Tiingo.Socket.Core
 {
     /// <summary>
-    /// Provides a bit-mapped set of values that are used
-    /// to specify which message types are surfaced to the client
+    /// Provides a bit-mapped set of values that are used to specify
+    /// which message types are surfaced to the caller. Callers specify
+    /// which message types they want to receive in <see cref="SocketParameters"/>
     /// </summary>
     [Flags]
     public enum MessageType

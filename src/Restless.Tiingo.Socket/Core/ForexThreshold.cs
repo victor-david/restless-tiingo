@@ -1,8 +1,13 @@
 ﻿namespace Restless.Tiingo.Socket.Core
 {
+    /// <summary>
+    /// Provides enumerated values for the threshold of <see cref="ForexParameters"/>
+    /// </summary>
     public enum ForexThreshold
     {
-        // Only 5 seems to work, even though documentation says 7 is okay
+        /// <summary>
+        /// Receive all updates
+        /// </summary>
         LastQuote = 5,
     }
 }
