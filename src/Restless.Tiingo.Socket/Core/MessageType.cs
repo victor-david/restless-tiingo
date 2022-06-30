@@ -27,12 +27,16 @@ namespace Restless.Tiingo.Socket.Core
         /// </summary>
         DataUpdate = 4,
         /// <summary>
+        /// Api error message
+        /// </summary>
+        Error = 8,
+        /// <summary>
         /// Close message
         /// </summary>
-        Close = 8,
+        Close = 16,
         /// <summary>
         /// All messages
         /// </summary>
-        All = Subscription | HeartBeat | DataUpdate | Close
+        All = Subscription | HeartBeat | DataUpdate | Error | Close
     }
 }

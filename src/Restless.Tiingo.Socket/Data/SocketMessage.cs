@@ -20,7 +20,7 @@ namespace Restless.Tiingo.Socket.Data
     /// is deserialized, then used to construct and populate the type that is passed back to the caller.
     /// 
     /// The caller receives all messages as the base type, <see cref="SocketMessage"/> and can cast
-    /// appropiately using various techniques.
+    /// appropiately as needed.
     /// </remarks>
     public class SocketMessage
     {
@@ -29,13 +29,15 @@ namespace Restless.Tiingo.Socket.Data
         public const string TypeSubscription = "I";
         public const string TypeHeartBeat = "H";
         public const string TypeDataUpdate = "A";
+        public const string TypeError = "E";
         public const string TypeSocketClosed = "X";
 
         /// <summary>
-        /// Gets the message type. There are four types:
+        /// Gets the message type. There are five types:
         /// I = subscription message
         /// H = heartbeat message
         /// A = Data update message
+        /// E = Api error message
         /// X = Socket closed message
         /// </summary>
         [JsonPropertyName("messageType")]
@@ -55,6 +57,7 @@ namespace Restless.Tiingo.Socket.Data
                 TypeSubscription => messageType.HasFlag(Core.MessageType.Subscription),
                 TypeHeartBeat => messageType.HasFlag(Core.MessageType.HeartBeat),
                 TypeDataUpdate => messageType.HasFlag(Core.MessageType.DataUpdate),
+                TypeError => messageType.HasFlag(Core.MessageType.Error),
                 TypeSocketClosed => messageType.HasFlag(Core.MessageType.Close),
                 _ => false
             };
@@ -77,6 +80,11 @@ namespace Restless.Tiingo.Socket.Data
                 RawDataMessage raw = JsonSerializer.Deserialize<RawDataMessage>(json);
                 SocketMessage clientMessage = clientSpecificCallback(raw);
                 return clientMessage ?? this;
+            }
+
+            if (MessageType == TypeError)
+            {
+                return JsonSerializer.Deserialize<SocketErrorMessage>(json);
             }
 
             if (MessageType == TypeSocketClosed)
