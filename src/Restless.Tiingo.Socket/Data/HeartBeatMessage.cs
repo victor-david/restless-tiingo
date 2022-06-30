@@ -5,7 +5,7 @@
     /// at regular intervals. Observation shows every two minutes. 
     /// </summary>
     /// <remarks>
-    /// {"messageType": "H", "response": {"message": "HeartBeat", "code": 200}}
+    /// Example: {"messageType": "H", "response": {"message": "HeartBeat", "code": 200}}
     /// </remarks>
     public class HeartBeatMessage : SocketResponseMessage
     {
