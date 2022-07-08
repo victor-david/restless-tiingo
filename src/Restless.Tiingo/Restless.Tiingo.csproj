@@ -6,7 +6,7 @@
     <PackageId>Restless.Tiingo</PackageId>
     <AssemblyName>Restless.Tiingo</AssemblyName>
     <RootNamespace>Restless.Tiingo</RootNamespace>
-    <Description>Provides access to the Tiiango financial api</Description>
+    <Description>Provides REST access to the Tiiango financial api. Access crypto, forex, and ticker end points.</Description>
     <PackageProjectUrl>https://github.com/victor-david/restless-tiiango</PackageProjectUrl>
     <RepositoryUrl>https://github.com/victor-david/restless-tiiango</RepositoryUrl>
     <Authors>Restless Animal Development</Authors>
@@ -17,7 +17,7 @@
     <Title>Restless Tiiango Api</Title>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <Copyright>Copyright © 2022</Copyright>
-    <PackageTags>tiiango api</PackageTags>
+    <PackageTags>tiingo api financial</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 

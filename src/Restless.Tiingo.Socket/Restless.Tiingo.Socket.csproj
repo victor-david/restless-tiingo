@@ -5,7 +5,7 @@
     <PackageId>Restless.Tiingo.Socket</PackageId>
     <AssemblyName>Restless.Tiingo.Socket</AssemblyName>
     <RootNamespace>Restless.Tiingo.Socket</RootNamespace>
-    <Description>Provides web socket access to the Tiiango financial api</Description>
+    <Description>Provides web socket access to the Tiiango financial api. Access crypto, forex, and IEX socket streams.</Description>
     <PackageProjectUrl>https://github.com/victor-david/restless-tiiango</PackageProjectUrl>
     <RepositoryUrl>https://github.com/victor-david/restless-tiiango</RepositoryUrl>
     <Authors>Restless Animal Development</Authors>
@@ -16,7 +16,7 @@
     <Title>Restless Tiiango Socket Api</Title>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
     <Copyright>Copyright © 2022</Copyright>
-    <PackageTags>tiiango api</PackageTags>
+    <PackageTags>tiingo api financial</PackageTags>
     <PackageReleaseNotes></PackageReleaseNotes>
 
   </PropertyGroup>
