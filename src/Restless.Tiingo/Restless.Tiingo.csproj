@@ -6,12 +6,12 @@
     <PackageId>Restless.Tiingo</PackageId>
     <AssemblyName>Restless.Tiingo</AssemblyName>
     <RootNamespace>Restless.Tiingo</RootNamespace>
-    <Description>Provides REST access to the Tiiango financial api. Access crypto, forex, and ticker end points.</Description>
-    <PackageProjectUrl>https://github.com/victor-david/restless-tiiango</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/victor-david/restless-tiiango</RepositoryUrl>
+    <Description>Provides REST access to the Tiiango financial api. Access search, crypto, forex, and ticker end points.</Description>
+    <PackageProjectUrl>https://github.com/victor-david/restless-tiingo</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/victor-david/restless-tiingo</RepositoryUrl>
     <Authors>Restless Animal Development</Authors>
     <Company>Restless Animal Development</Company>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <LangVersion>9.0</LangVersion>
     <Product>Restless Tiiango Api</Product>
     <Title>Restless Tiiango Api</Title>
