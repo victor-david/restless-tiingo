@@ -1,21 +1,28 @@
 # Restless Tiingo
 
-**Restless Tiingo** is a .Net library that enables you to access financial data from the Tiingo service.
-You can access the data via the REST api or via web sockets.
+**Restless Tiingo** is a .Net standard library that enables you to access financial data from the Tiingo service.
+You can access the data via the REST api or via web sockets. There are two assemblies:
 
-## Assemblies
-- Restless.Tiingo - Provides access to REST services
-  - Ticker meta data and prices
-  - Forex bids and prices
-  - Crypto meta data and prices
-  - Tiingo news feed
-  - Search lets you query the Tiingo service to obtain supported symbols, etc.
-   
-- Restless.Tiingo.Socket - Provides access to web socket services
-  - Forex quotes
-  - Crypto quotes and trades
-  - IEX quotes and trades
+### Restless.Tiingo
+[![Nuget](https://img.shields.io/nuget/v/Restless.Tiingo.svg?style=flat-square)](https://www.nuget.org/packages/Restless.Tiingo/)
 
+This assembly provides access to Tiingo REST services. You can get:
+
+- Ticker meta data and prices
+- Forex bids and prices
+- Crypto meta data and prices
+- Tiingo news feed
+
+You can also access the Tiingo search query endpoint to obtain supported symbols, etc.
+
+### Restless.Tiingo.Socket
+[![Nuget](https://img.shields.io/nuget/v/Restless.Tiingo.Socket.svg?style=flat-square)](https://www.nuget.org/packages/Restless.Tiingo.Socket/)
+
+This assembly provides access to Tiingo web socket services. You can get streaming data for:
+
+- Forex quotes
+- Crypto quotes and trades
+- IEX quotes and trades
 
 ## Usage examples (REST)
 
