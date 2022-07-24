@@ -21,7 +21,7 @@ namespace Restless.Tiingo.Client
     {
         private const string TickerZipUrl = "https://apimedia.tiingo.com/docs/tiingo/daily/supported_tickers.zip";
         private const string TickerTempFile = "TICKERS-DB6E92E3-59AC-40DD-8A06-279950AC7CB9";
-        private const int MaxTempFileAgeMinutes = 60 * 16;
+        private const int MaxTempFileAgeMinutes = 60 * 24;
 
         internal TickerDataClient(IHttpClientWrapper client, string apiToken) : base(client, apiToken)
         {
@@ -35,7 +35,7 @@ namespace Restless.Tiingo.Client
         /// <remarks>
         /// This method downloads the ticker definition file from Tiiango and extracts the contents.
         /// Subsequent calls to this method use a cached copy of the file saved in the system temp
-        /// directory. The cached file will continue to be used until it has aged 16 hours.
+        /// directory. The cached file will continue to be used until it has aged 24 hours.
         /// If you want to force the download to happen before the aging period has elapsed,
         /// call the <see cref="RemoveDefinitionCacheFile"/> method.
         /// </remarks>
