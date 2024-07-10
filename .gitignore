@@ -3,4 +3,5 @@ obj/
 bin/
 .docs/
 .vs/
+desktop.ini
 launchSettings.json
