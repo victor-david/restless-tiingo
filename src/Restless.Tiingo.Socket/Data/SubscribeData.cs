@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -26,7 +24,7 @@ namespace Restless.Tiingo.Socket.Data
             EventData = eventData ?? throw new ArgumentNullException(nameof(eventData));
             jsonOptions = new()
             {
-                IgnoreNullValues = true
+                DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
             };
         }
 

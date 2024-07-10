@@ -11,7 +11,7 @@
     <RepositoryUrl>https://github.com/victor-david/restless-tiingo</RepositoryUrl>
     <Authors>Restless Animal Development</Authors>
     <Company>Restless Animal Development</Company>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <LangVersion>9.0</LangVersion>
     <Product>Restless Tiiango Api</Product>
     <Title>Restless Tiiango Api</Title>
@@ -22,8 +22,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="27.2.1" />
-    <PackageReference Include="System.Text.Json" Version="4.7.2" />
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
+    <PackageReference Include="System.Text.Json" Version="8.0.4" />
   </ItemGroup>
 
 </Project>
