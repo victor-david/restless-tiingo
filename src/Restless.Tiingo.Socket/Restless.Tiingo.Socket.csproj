@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/victor-david/restless-tiingo</RepositoryUrl>
     <Authors>Restless Animal Development</Authors>
     <Company>Restless Animal Development</Company>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <LangVersion>9.0</LangVersion>
     <Product>Restless Tiiango Socket Api</Product>
     <Title>Restless Tiiango Socket Api</Title>
@@ -21,7 +21,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="8.0.4" />
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
   </ItemGroup>
 
 </Project>
